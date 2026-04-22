@@ -1,0 +1,5409 @@
+########################### Think in Python Everything #################
+Table of contents
+Copyright Notice
+Contributor List
+Chapter 1 The way of the program
+Chapter 2 Variables, expressions, and statements
+Chapter 3 Program Flow
+Chapter 4 Functions
+Chapter 5 Datatypes
+Chapter 6 Numpy
+Chapter 7 File I/O
+Appendix A Writing Your Own Modules
+Appendix B More datatypes
+Appendix C Recursion
+Appendix D Object Oriented Programming
+Appendix E Exceptions
+Appendix F Fitting and Scientific Data Handling
+Appendix G PyGame
+Appendix H Plotting with matplotlib
+GNU Free Document License
+Search Page
+
+
+
+
+###################################ThinkPython How to think like a computer scientist
+
+
+#chapter 2 Variables and Expressions
+#input
+#getting input from the user: 
+
+name = input('Please enter your name: ')
+
+
+
+################## code for the Area of a circle
+
+
+response = input('What is your radius? ')
+r = float(response)
+area = math.pi * r**2
+print("The area is ", area)
+
+
+#Lets compose the first two lines into a single line of code, and compose the second two lines into 
+#another line of code
+
+r = float(input('what is your radius?'))
+print("the area is ', math.pi * r**2)
+
+#If we really wanted to be tricky, we could write it all in one statement:
+print("The area is ", 3.14159*float(input("What is your radius?"))**2)
+
+
+#Exercises
+
+
+
+Exercise 7: 
+You look at the clock and it is exactly 2pm. You set an alarm to go off in 51 hours. At what time does the alarm
+go off? (Hint: you could count on your fingers, but this is not what we’re after. If you are tempted to count on
+your fingers, change the 51 to 5100.)
+
+thinking:
+how many hours in a day? 24
+what is 51 /24 (using modulus)? 2 and remainder is 3
+so if it is 2PM, in 24hours it will be 2PM, another 24 hours it will be 2 PM, and then 3 hrs later it will be five pm
+if is 5PM , in 24 hrs it will be 5PM, 45
+
+
+Exercise 8: 
+write a python program to solve exercise 7: Ask the user for the time now (in
+hours), and ask for the number of hours to wait. Your program should output what the time will be on the clock
+when the alarm goes off.
+
+hourz = input('What time is it now in hours(e.g. 34, 56,... ? ')
+waitTime = input('Enter the number of hours to wait: ')
+
+
+hourz = int(hourz)
+waitTime = int(waitTime)
+
+alarmTime = hourz + (waitTime % 24)
+
+print('Alarm will go off at: ', alarmTime)
+
+
+
+
+
+
+
+############################Chap 3 Program Flow #################################
+#drawing a rectangle or triangle using turtle package. 
+
+import turtle
+window = turtle.Screen()			#create a playground for turtles
+alex = turtle.Turtle()				#Create a turtle, assign to alex
+
+alex.forward(50)				#tell alex to move forward by 50 unites
+alex.left(90)					#tell alex to turn left 90 degrees
+alex.forward(50)				#tell alex to move forward by50         units
+alex.left(90)
+alex.forward(50)
+alex.left(90)
+alex.forward(50)
+
+window.mainloop()				#wait for user to close window
+
+
+
+#WE can do such things as updating the pen size and the background color
+import turtle
+window = turtle.Screen()
+window.bgcolor('lightgreen') 			#set the window background color
+window.title('Hello, Tess!")			#Set the window title
+
+tess = turtle.Turtle()				
+tess.color('blue')				#tell tess to change her color
+tess.pensize(3)					#tell tess to set her pen width
+
+tess.forward(50)
+tess.left(120) 
+
+
+########modification
+modify program above so that it prompts user to enter the desired background color. 
+It should store the user's response in a variable and modify the color of the window
+according to the user's wishes. 
+
+import turtle
+
+window = turtle.Screen()			#Setup the window and its attributes
+window.bgcolor('lightgreen')
+window.title('Tess & Alex')
+
+tess = turtle.Turtle()				#create tess and set some attributes
+tess.color('hotpink')
+tess.pensize(5)
+
+alex = turtle.Turtle()				#create alex
+
+tess.forward(80)				#make tess draw an equilateral triangle
+tess.left(120)
+tess.forward(80)
+tess.left(120)
+tess.forward(80)
+tess.left(120)					#complete the triangle
+
+tess.right(180)					#turn tess around
+tess.forward(80)				#move her away from the origin
+
+						#make alex draw a square
+alex.forward(50)				#tell alex to move forward by 50 unites
+alex.left(90)					#tell alex to turn left 90 degrees
+alex.forward(50)				#tell alex to move forward by50         units
+alex.left(90)
+alex.forward(50)
+alex.left(90)
+alex.forward(50)
+alex.left(90)
+
+window.mainloop()
+
+
+
+
+
+
+
+
+################################################    THE FOR LOOP ##################################################
+####Invite friends over for a birday party 
+for i in ['Joe', 'Mike', 'Zenar', 'Charlie']:
+    invite = 'Hi ' + f + '. Please come to my party on Saturday!'
+    print (invite) 							#prints for all for 
+
+print('\n', invite)							#should print just one
+
+
+#We can think of this as for every item in array 
+#	do this to them
+
+
+#use a loop to draw stop sign 
+window = turtle.Screen()			#create a playground for turtles
+
+alex = turtle.Turtle()
+
+for i in range(9):             #could have used [0,1,2,3]
+    alex.forward(100)
+    alex.right(45)
+
+window.mainloop()
+
+
+###use For loop to see how tess can draw her equilateral triangle
+
+import turtle
+window = turtle.Screen()
+
+tess = turtle.Turtle()
+
+#could also have used a list a la 
+#colours = ['yellow', 'red', 'purple', 'blue']
+
+#then for the loop start with
+#for i in colours: 
+
+for color in ['yellow', 'red', 'purple', 'blue']
+    alex.color(color)
+    alex.forward(100)
+    alex.left(90)
+
+window.mainloop()
+
+#the code above will draw a square with each line represented by each color
+#i.e. first side is yellow then second side is red, then purlple then blue
+
+
+### move turtle to different place without drawing a line with the 
+###penup() and pendown() methods. 
+
+window = turtle.Screen()
+
+alex = turtle.Turtle()
+
+
+
+######################## Chapter 3 continued Program Flow 
+############# Paired Data
+
+###initially simple without using dictionaries
+
+year_born = ('Paris Hilton', 1981)
+
+#### can put many pairs in to a list of pairs
+
+celebs = [('Brad Pitt', 1963), ('Jack Nicholson', 1937), ('Justin Bieber', 1994)]
+
+###print all celebs
+
+print(celebs)
+print(len(celebs))
+
+
+#can use loops on these data structures
+#print the names of celebs whose birthdays are before 1980 using for loop
+
+for names, birthdays in celebs:
+    if birthdays < 1980:
+        print(names, birthdays)			#this prints out the names of the celebs and their birthdas 								#according to if birthdays < 1980
+
+
+
+#more advanced lists
+#Done through Nested Loops for Nested Data
+
+students = [('John', ['Compsci', 'Physics']),
+    ('Vusi', ['Maths', 'Compsci', 'Stats']), 
+    ('Jess', ['Compsci', 'Accounting', 'Economics', 'Management']),
+    ('Sara', ['InfySys', 'Accounting', 'Economics', 'CommLaw']),
+    ('Stussy', ['Sociology', 'Economics', 'Law', 'Stats', 'Music'])]
+
+#print all students witha count of their courses
+for name, subjects in students: 
+    print(name, 'takes', len(subjects), 'courses')
+
+
+#print students who are taking common course sstats 2 methods
+#method one
+counter = 0 
+for name, subjects in students: 
+    for s in subjects:
+        if s=='Compsci':
+            counter  += 1
+
+print('The number of students taking CompSci is', counter)
+
+#method 2
+for name, subjects in students: 
+    if 'CompSci' in subjects:			#keyword 'in' can be used in python lists or strings
+        counter += 1
+
+
+
+
+#####For else construct
+
+numbers = [10, 5, 24, 8, 6]
+for number in numbers:
+    if number % 2 == 1: 
+        print(True)
+        break
+
+else: 
+    print(False) 
+
+
+##the above is a remedy to the code that would have the else in the loop with an added break
+#such as 
+
+else:
+   print(False)
+   break
+
+
+###################################################################################################################
+
+###################Chapter 4 Thinkin Python
+Conversation opened. 2 messages. 1 message unread.
+
+Skip to content
+Using Gmail with screen readers
+
+Conversations
+67% of 15 GB used
+Terms · Privacy · Program Policies
+Last account activity: 0 minutes ago
+Currently being used in 1 other location · Details
+#Function syntax
+def <NAME> (<PARAMETERS>):
+    <STATEMENTS> 
+
+
+##### we're back with the turtle
+####We can draw a square using a function 
+
+import turtle 
+
+def draw_square(animal, size): 
+
+	#make animla draw a square with sides of length size
+
+    for _ in range(4): 
+        animal.forward(size)
+        animal.left(90)
+
+window = turtle.Screen()		#Set up the window and its attributes
+window.bgcolor('lightgreen')
+window.title('Alex meets a function')
+
+alex = turtle.Turtle()			#create alex
+draw_square(alex, 50)			#call the function to draw the square
+window.mainloop()
+
+
+
+
+##### we can use our defined functions in loops. we can call them many times
+import turtle 
+
+def draw_multicolor_square(animal, size): 
+
+#Make an animla draw a multi-color square of given size. 
+#we define our function here
+
+    foor color in ['red', 'purple', 'hotpink', 'blue']:
+        animal.color(color)
+        animal.forward(size)
+        animal.left(90)
+
+window = turtle.Screen()		#Setup the window and its attributes
+window.bgcolor('lightgreen')
+
+tess.turtle.Turtle()			#Create Tess and set some attributes
+tess.pensize(3)
+
+size = 20
+
+#repeatedly call the function
+for _ in range(15):
+    draw_multicolor_square(tess, size)
+    size += 10				#increase size for next time
+    tess.forward(10)			#move tess along a little
+    tess.right(18)			# and give her some turn
+
+
+window.mainloop()
+
+
+
+
+##Functions that return values                                                                                                                                                                      
+###These are called fruitful  functions
+
+#Lets redo the compound interest formula
+
+def final_amount (p, r, n, t):
+    #Apply the compound interest formula to p
+    #to produce the final amount
+
+    a = p * ( 1+r/n) ** (n*t)
+    return a					#This is new, and makes the function fruitful 
+
+# now that we have the function above, let us call it
+toInvest = float(input('How much do you want to invest? '))
+fnl = final_amount(toInvest, .08, 12, 5)
+print('At the end of the period you will have', fnl)
+
+
+
+
+#####Exercises 
+1. Write a void (non-fruitful) function to draw a square. Use it in a program to draw the image shown below. Assume each side is 20 units. (Hint: notice that the turtle has already moved away from the ending point of the last square when the program ends.)
+
+|__| |__| |__| |__| |__| |__| 
+
+###lets see the program should have the following structure
+#input
+#Variables like size, angle
+#functions
+#turle creation
+#create the window and elements
+
+
+#process 
+#looping processes that create squares and subsequent squares
+create a square then penup then increase the size and do it again
+steps call the square function tab a space call the square function
+#create function
+#creeate window invironment
+
+
+
+
+#output
+the squares
+
+
+
+import turtle
+
+#write function 
+
+def draw_square(animal, sideLength,degTurn)
+sideLength = 10
+    for _ in range (4):
+        sideLength += 20
+        animal.forward(sidLength)
+        animal.left(degTurn)
+        
+
+
+
+#set up window environment
+window = turtle.Screen()		#Set up the window and its attributes
+window.bgcolor('lightgreen')
+window.title('Alex meets a function')
+
+alex = turtle.Turtle()			#create alex
+alex.shape('turtle')
+draw_square(alex, 20, 90)			#call the function to draw the square
+#print('\t', draw_square(alex, 50, 90), '\t', draw_square(alex, 50,90)
+window.mainloop()
+
+
+#create a window  for the program
+thinkPythonWorkingdocument Ch 4.txt
+Displaying thinkPythonWorkingdocument Ch 4.txt.
+
+
+
+#atteempmt #2
+import turtle
+
+#write functions
+
+def move_turtle(animal):
+        animal.penup()
+        animal.forward(40)
+        animal.pendown()
+    
+    
+def draw_square(animal, sideLength, degTurn):
+        
+    for _ in range (4):
+        animal.forward(sideLength)
+        animal.left(degTurn)
+ 
+
+
+#set up window environment
+window = turtle.Screen()		#Set up the window and its attributes
+window.bgcolor('lightgreen')
+window.title('Alex meets a function')
+
+alex = turtle.Turtle()			#create alex
+alex.shape('turtle')
+for _ in range(4):
+    draw_square(alex, 20, 90)			#call the function to draw the square
+    move_turtle(alex)
+#print('\t', draw_square(alex, 50, 90), '\t', draw_square(alex, 50,90)
+
+window.mainloop()
+
+
+Exercise 2
+Write a program to draw concentric squares starting from a smaller to larger and larger
+
+
+
+#pseudo code
+#lets draw a function to draw a square
+##the first square has size twenty 
+###increase the size for the next square to 40 and so on
+
+
+import turtle
+
+#write the move down and left function
+
+def startChange(animal):
+    animal.penup()
+    animal.right(90)
+    animal.forward(10)
+    animal.right(90)
+    animal.forward(10)
+    animal.right(180)
+    animal.pendown()
+
+#write the square function
+def drawSquare( animal, lengthSide, degTurn):
+
+    for _ in range(4): 
+       animal.forward(lengthSide)
+       animal.left(degTurn)
+
+
+#setup window environment
+window = turtle.Screen()		#set up window and attributes
+window.bgcolor('lightgreen')
+window.title('increasing concentric squares')
+
+alex = turtle.Turtle()
+alex.shape('turtle')
+size = 20				#sides length initially 20 but we will increase them as we go on
+
+#loop to include changing size
+for _ in range(4):
+    drawSquare(alex, size, 90)
+    startChange(alex)
+    size += 20
+
+window.mainloop()
+
+
+
+
+
+#############Exercise 4 is drawing tilted squares on top of each other
+
+
+import turtle
+
+#write the square function
+def drawSquare( animal, lengthSide, degTurn):
+
+    for _ in range(4): 
+       animal.forward(lengthSide)
+       animal.left(degTurn)
+
+
+#setup window environment
+window = turtle.Screen()		#set up window and attributes
+window.bgcolor('lightgreen')
+window.title('increasing concentric squares')
+
+alex = turtle.Turtle()
+alex.shape('duck')
+size = 20				#sides length initially 20 but we will increase them as we go on
+
+#loop to include changing size
+for _ in range(4):
+    drawSquare(alex, size, 90)
+    size += 20
+
+window.mainloop()
+
+
+
+
+
+################CHAP 4.9-1 FRUITFUL FUNCTIONS - RETURN  VALUES
+#area using a fruitful function 
+import math
+
+def area(radius):
+    b = math.pi * radius **2
+    return b
+
+
+
+###function composition 
+###writing a function inside of another functiion 
+
+Suppose we want to write a function that calculates the area of a circle
+We know the area of a circle is PI*r**2   loosely translated as pi * radius squared
+we can begin by writing a distance function 
+then we can use that function inside the 
+
+
+#distance function 
+we have this as the square root of sqrd(x2-x1) = sqrd(y2-y1)
+we use this as the radius
+
+def distance(x1 ,y1, x2, y2): 
+    dx = x2 - x1
+    dy = y2 - y1
+    dsquared = dx**2 + dy**2
+    result = dsquared**0.5
+    return result
+
+###recall area function
+def area(radius):
+    b = math.pi * radius **2
+    return b
+
+###now we create a radius variable 
+radius = distance ( x1, y1, x2, y2)
+
+###now we can do this
+result = area(radius)
+return result 
+
+###which we combine below to do the following 
+
+#area of circle function 
+def areaCircle(x1, y1, x2, y2): 
+    radius = distance ( x1, y1, x2, y2)
+    result = area(radius)
+    return result
+
+
+
+#can implement this better or more compositionally as  
+def areaOfCircle(x1,y1,x2,y2):
+    return area(distance(x1,y1,x2,y2)
+
+
+
+
+
+
+
+#Lets redo the compound interest formula
+
+def final_amount (p, r, n, t):
+    #Apply the compound interest formula to p
+    #to produce the final amount
+
+    a = p * ( 1+r/n) ** (n*t)
+    return a					#This is new, and makes the function fruitful 
+
+# now that we have the function above, let us call it
+toInvest = float(input('How much do you want to invest? '))
+fnl = final_amount(toInvest, .08, 12, 5)
+print('At the end of the period you will have', fnl)
+
+
+######################################################################################################
+
+########################################## chapter 5 
+% Data Types
+
+
+5.1.2 Strings
+
+
+Strings are objects so each sting has its own attributes. 
+
+our_string = "Hello World"
+all_caps = our_string.upper()
+
+#above returns HELLO World
+
+We can enumerate our string to see the indexes
+list(enumerate(our_string))
+
+returns the following: 
+[(0, 'H'),
+ (1, 'e'),
+ (2, 'l'),
+ (3, 'l'),
+ (4, 'o'),
+ (5, ' '),
+ (6, 'W'),
+ (7, 'o'),
+ (8, 'r'),
+ (9, 'l'),
+ (10, 'd')]
+
+################String traversal 
+bad way 
+ix = 0 
+while ix < len(our_string):
+    letter = our_string[ix]
+    print(letter)
+    ix += 1
+
+
+better way 
+ 
+our_string = "Hello World"
+for letter in our_string:
+    print(letter)
+
+
+
+
+###Concatenate with strings ..... use + sign 
+
+prefixes = "JKLMNOPQ"
+suffix = "ack"
+
+for p in prefixes: 
+    print( p + suffix) 
+
+#output: 
+Jack
+Kack 
+Lack 
+...
+
+
+###immutable Strings
+strings can't be chnaged 
+They can however be modifi through concatenation
+
+greeting  = "Hello World"
+greeting[0] = "J" 			##ERROR
+print (greeting)
+
+we can fix as such:
+greeting = "Hello World"
+new_greeting = "J" + greeting[1:]
+
+
+
+###in and not in string operators
+#combining the in operator with string concatenation using +, we can write a function that removes
+all the vowels from a string
+
+def remove_vowels(phrase):
+    vowels = "aeiou"
+    string_sans_vowels = ""
+    for letter in phrase:
+        if letter.lower() not in vowels:
+            string_sans_vowels += letter
+    return string_sans_vowels
+
+
+
+###Find in strings
+Find finds the index of a character or rater substring and returns the index and -1 if it doesn't exist
+
+
+define my_find(haystack, needle): 
+    '''
+        find and return the index of needle in haystack.
+        Return -1 if needle does not occur in haystack>
+    '''
+    for index, letter in enumerate(haystack):
+        if letter == needle: 
+            return index
+    return -1
+
+
+
+#####OPTIONAL PARAMETERS "FIND METHOD STRINGS"
+We can also chose to find the second or third occurence of a character n string. we can
+modify the find function adding a third parameter fo the starting position in the search string
+
+
+def find2(haystack, needle, start):
+    for index, letter in enumerate(haystack[start:]):
+        if letter == needle: 
+            return index + start
+    return -1
+
+if we call find2(banana, 'a', 2) it now returns 3 which indicates the index of the first occurrence of 'a'
+in banana starting at index 2. 
+
+
+# STRINGS
+# Split string method
+
+phrase = ' Well hello there, my friend...how goes it '
+list_phrase = phrase.split()
+
+print(list_phrase)
+
+
+
+####REMOVE PUNCTUATION
+
+import string
+my_story = """ 
+Pythonsareconstrictors,whichmeansthattheywill'squeeze'thelife
+outof theirprey.Theycoilthemselvesaroundtheirpreyandwith
+each breaththecreaturetakesthesnakewillsqueezealittletighter
+untiltheystopbreathingcompletely.Oncetheheartstopstheprey
+isswallowedwhole.Theentireanimalisdigestedinthesnake's
+stomachexceptforfurorfeathers.Whatdoyouthinkhappenstothefur,
+feathers,beaks,andeggshells?The'extrastuff'getspassedoutas--
+youguessedit---snakePOOP!
+               """
+
+words = remove_punctuation(my_story).split()
+print(words)
+
+#function to remove punctuation
+def remove_punctuation(phrase): 
+    phrase_sans_punct = ""				#Empty string
+    for letter in phrase:
+        if letter not in string.punctuation: 
+            phrase_sans_punct += letter
+    return phrase_sans_punct
+
+
+
+
+#### FORMAT Method
+phrase = "His name is {0}!".format("Arthur")
+print (phrase)
+
+name = "Alice"
+age = 10
+phrase = "I am {1} and I am {0} years old.".format(age, name)
+print(phrase)
+
+#for numbers
+x = 4
+y = 5
+phrase = 2**10 = {0} and {1} * {2} = {3:f}".format(2**10, x , y , x*y)
+
+
+demonstration of real utility of string formatting
+
+code without any changes
+print("i\ti**2\ti**2\ti**5\ti**10\ti**20")
+for i in range (1, 11):
+    print(i, "\t", i**2, "\t", i**3, "\t", i**5, "\t", i**10, "\t", i**20)
+
+now we can right justify everything 
+layout = "{0:>4}{1:>6}{2:>6}{3:>8}{4:>13}{5:>24}"
+
+print(layout.format("i", "i**2", "i**3", "i**5", "i**10", "i**20"))
+for i in range(1, 11):
+print(layout.format(i, i**2, i**3, i**5, i**10, i**20))
+
+
+
+
+
+Some String Exercises
+
+Exercise #5
+Assign to a variable in your program a triple quoted string that contains your favourite
+paragraqph of text, perhaps a poem, a speech, instructions to bake a cake, some inspirational
+verse, etc. 
+
+Write a function which removes all punctuation from teh string. Breaks the string into a list of 
+words, and counts the number of words in your text that contain the letter "e". Your program should 
+print an analysis of the text like this 
+
+"your text contains 243 words, of which 1109 (44%) contain an "e"
+
+my_story = """
+So live your life that the fear of death can never enter your heart.Trouble no one about their religion; respect others in their view, and demand that they respect yours.Love your life, perfect your life,
+beautify all things in your life.Seek to make your life long and its purpose in the service of your people. When it comes your time to die, be not like those whose hearts are filled with the fear of death, so that when their time comes they weep and pray for a little more time to live their lives over again in a different way.
+Sing your death song and die like a hero going home. 
+
+"""
+
+import string
+
+
+
+
+
+def remove_punct_count( my_story):
+    
+    count_Words = 0
+    count_e = 0
+    phrase_without_punctuation = ""			#define an empty string without punctuation
+    for letter in my_story:
+        if letter not in string.punctuation:
+             phrase_without_punctuation += letter	#add the letter to the phrase without punctuation
+    phrase_without_punctuation.split()			#split the story into words
+    print(phrase_without_punctuation)
+    for word in phrase_without_punctuation:
+         count_Words += 1
+         if "e" in word:
+             count_e += 1
+    print("your text contains", count_Words, "words, of which ", count_e ,  " contain an e")
+    
+    
+Exercise 6
+Print a neat looking multiplication table 
+
+lets see, lets start with 1 up to 4
+      index column
+index  1      2      3      4  
+1      1x1    2x1    3x1    4x1
+2      1x2    2x2    3x2    4x2
+3      1x3    2x3    3x3    4x3
+4      1x4    2x4    3x4    4x4  
+
+layout = "{0:>4}{1:>6}{2:>6}{3:>8}{4:>13}{5:>24}"
+
+layout = "{0:>4}{1:>6}{2:>6}{3:>8}{4:>13}"
+
+print(layout.format("i", "1", "2", "3", "4"))
+print(":------------------------------------")
+      
+for i in range(1, 4):
+    print(layout.format(i, 1*i, 2*i, 3 *i, 4 * i))
+    
+Note: teh key here was to make sure indices matched (range 1,4) means 1 to 4-1. so we dont see row 4
+    
+    
+Exercise 7
+WRite a function that reversese its string argument and satisifies these tests
+1 reverse("happy")=="yppah"
+2 reverse("Python")=="nohtyP"
+3 reverse("")==""
+4 reverse("a")=="a"
+
+pseudo:
+for every letter in word: 
+    reverse ordering of index
+    i.e. take letter at index n-1 and create a new string with it at index 0
+    repeat at n - 2 and concatenate with prior word
+
+rand_word = "minerva"
+new_string = ""
+#size = len(rand_word)
+#last = rand_word(size -1)
+
+for i in range(len(rand_word)):
+    i-1 += new_string
+print new_string
+    
+
+
+############# 5.2 Tuples
+
+tuple is an example of a data structure - a mechanism for grouping and organinzing data. It is a comma separated sequence of values
+other languages call them records or structs
+
+initializing
+
+Julia = ("Julia", "Roberts", 1967, "Duplicity", 2009, "Actress", "Atlanta, Georgia"
+Julia[2]
+
+
+Immutable ---cant be changed so have to use concatenation and slicing 
+
+
+### Tuple assignment 
+left to right method
+
+(name, Surname, year_born, movie, year_movie, profession, birthplace) = julia
+
+
+whtat the above does is that it saves it into memory
+to call for example Julia's profession after having assigned Julia as above
+in the script just type profession 
+
+>>>bob = ("Bob", 19, "CS")	#tuple packing
+>>> (name, age, studies) = bob 	#tuple unpacking
+
+for a single value in a tuple, have to have comma
+single_value = (8, ) 
+
+
+
+## Tuples as return values
+can return multiple values for example mean and standard deviation
+
+import math
+
+def circle_stats(r): 
+    '''Return (circumference, area) of a circle of radius r '''
+    circumference = 2 * math.pi * r
+    area = math.pi * r * r
+    return (circumference, "{0:.3f}".format(area))  
+
+
+We can have tuples inside tuples or lists inside tuples as such 
+
+
+students = [
+("John", ["CompSci", "Physics"]),
+("Vusi", ["Maths", "CompSci", "Stats"]),
+("Jess", ["CompSci", "Accounting", "Economics", "Management"]),
+("Sarah", ["InfSys", "Accounting", "Economics", "CommLaw"]),
+("Zuki", ["Sociology", "Economics", "Law", "Stats", "Music"])]
+
+
+
+julia_more_info = ( ("Julia", "Roberts"), (8, "October", 1967),
+"Actress", ("Atlanta", "Georgia"),
+[ ("Duplicity", 2009),
+("Notting Hill", 1999),
+("Pretty Woman", 1990),
+("Erin Brockovich", 2000),
+("Eat Pray Love", 2010),
+("Mona Lisa Smile", 2003),
+("Oceans Twelve", 2004) ])
+
+
+
+
+############# 5.3 Lists
+list is an ordered collection of values
+
+list = []    notice brackets
+
+It is common (but wrong!) to use a loop variable as a list index
+
+horsemen = ["war", "famine", "pestilence", "death"]
+for i in [0, 1, 2, 3}:
+    print (horsemen[i])
+
+The above is called list traversal because the variable i is used as an index into the list, printing the i th element but 
+it is wrong
+
+
+better way to go through this is 
+horsemen = ["war", "famine", "pestilence", "death"]
+for h in horsemen:
+    print(h)
+
+Can use len of list to traverse through 
+1 horsemen = ["war", "famine", "pestilence", "death"]
+2
+3 for i in range(len(horsemen)):
+4 print(horsemen[i])
+
+Still not good to do it this way 
+
+
+still better way 
+horsemen = ["war", "famine", "pestilence", "death"]
+for horseman in horsemen:
+    print horseman
+
+############## Cloning method for lists
+The idea here is that we want to clone a list so that we preserve the original while    
+we operate on the clone. 
+we do this through slicing 
+
+>>> a = [1, 2, 3]
+>>> b = a[:]
+>>> b
+[1, 2, 3]
+
+########### 5.3 Lists and for Loops 
+Let's remember that Lists are mutable
+
+we often want to traverse a list while changing the elements of the list
+
+
+The above happens so much that we can use enumerate in python which generates pairs of both(index, value) during the traversal
+xs = [ 1,  2, 3, 4, 5, 6, 9]
+
+for (i, val) n enumerate(xs):
+    xs[i] = val**2		#notice how we don't do val[i] as above
+    print(i, xs[i]		#xs is the new squared list so thas why weprint it 
+
+
+
+
+5.3 Functions that produce lists
+here we focus again on pure functions. This is enhance or further motivated by acknowleding that these functions return lists. There is a pattern to be aware of: 
+
+initialize a result variable to be an empty list
+loop 
+    create a new element
+    append it to result
+return the result
+
+We showcase the above through an example: A function that returns a list of all prime numbers less than n: 
+
+def primes_lessthan (n):
+    '''return a list of all prime numbers less than n. '''
+    result = []
+    for i in range(2, n): 
+        if is_prime(i): 
+            result.append(i)
+    return result 
+
+
+
+
+#########Strings and Lists
+
+REcall we can split strings 
+
+phrase = "Quatre vingt dix huit, J'ai suivi la haie et je l'ai pu" 
+phrase_split = phrase.split()
+
+   
+
+We can also glue back togther using join
+"".join(phrase_split)
+
+
+####################3list and range
+range doesn't immediately/instantly compute all its avalues: it puts off the computation and does it on demand or lazily. 
+
+def f(n): 
+    '''
+       Find the first positive integer between 101 and less
+       than n that is divisible by 21
+    '''
+    for i in rante (101, n): 
+        if (i, % 21 ==0):
+            return i
+
+
+print(f(110) == 105)
+
+
+
+######################## 5.31 MATRICES ##################
+NESTED lists are often used to represent matrices 
+suppose that we want a matrix that looks like this 
+
+ 1 2 3 
+ 4 5 6
+ 7 8 9 
+
+this is a 3 x 3 matrix. 
+it is read as 0-n-1 
+
+can be represented as such 
+mx = [[1,2,3], [4,5,6], [7,8,9]]
+
+
+mx[1]     #this is row corresponding to index 1
+
+mx[1][2]  #at index 
+
+
+
+################## EXERCISES  
+Write a function add_vectors(vector1,vector2) that takes two lists of numbers of the same length,
+and returns a new list containing the sums of the corresponding elements of each:
+
+def add_vektor(vektor1, vektor2):
+    #vektor1 = []
+    #vektor2 = []
+    my_list = []
+    
+    if len(vektor1) == len(vektor2):
+        for i in range(len(vektor1)):
+            result = vektor1[i] + vektor2[i]
+            my_list.append(result)
+            print (result)
+            
+        return my_list
+
+
+
+Exercise 10
+Write a function replace(s, old, new) that replaces all occurrences of old with new in a string s:
+
+1 replace("Mississippi", "i", "I") == "MIssIssIppI"
+2
+3 song = "I love spom! Spom is my favorite food. Spom, spom, yum!"
+4 replace(song, "om", "am") ==
+5 "I love spam! Spam is my favorite food. Spam, spam, yum!"
+6
+7 replace(song, "o", "a") ==
+8 "I lave spam! Spam is my favarite faad. Spam, spam, yum!"
+
+hint use split and join
+
+pseudocode: 
+take string 
+cut the string 
+find the item of interest
+change the item of interest
+join the new string 
+
+print the new string
+
+
+
+
+
+def replace(s, old, new): 
+
+''' split the string '''
+    s = s.split()
+    #find the character of interest
+    old = s.find("old")
+
+    #perform the switch __ use temp variable
+    for h in s: 
+        temp = old
+        old = new
+        new = temp
+
+    #join the new string
+    s = s.join
+
+print(s)
+    
+    
+
+##########5.4 Dictionaries
+
+####Operations - Del
+
+inventory = {"apples":430, "bananas": 312, "oragnes": 525, "pears": 217}
+print {inventory}
+    
+# use del to remove bananas
+del inventory["bananas"]
+
+#insert new banana pair
+inventory["bananas"] += 200
+
+    
+#####Methods - Keys
+#used to go through the keys in a loop manner
+for key in inventory.keys():				#order of the keys is not defined
+    print("Got Key", key, "which maps to value", inventory([key])
+
+keys = list(inventory.keys())
+print(keys)
+
+
+   
+#can ommit keys alltogehter and just iterate over key
+for key in inventory:
+    print ("got key", key)
+
+
+###items returns a view of a list of tuples
+list(inventory.items())
+
+###items
+#loop thorugh getting pairs in a tuple
+for(key,value) in inventory.items():
+    print("Got", key, "that maps to", value) 
+
+
+
+### Method Counting letters
+letter_counts = {}			#start with empty dictionary
+for letter in "Mississipi": 
+    letter_counts[letter] = letter_counts.get(letter, 0) + 1	#get the current count (letter, 0) and increase by 1
+
+
+#output result
+letter_counts
+
+
+'''
+might be more appealing to display in alphabetical order
+We use items and sort.
+items provides a tuple pair (key, value)
+'''
+
+letter_items = list(letter_counts.items())
+letter_items.cort
+print(letter_items)
+
+
+
+
+#########Exercises 5.4
+Exercise 1
+Write a program that reads a string and returns a table of the letters of the alphabet in alphabetical order which
+occur in the string together with the number of times each letter occurs. Case should be ignored. A sample
+output of the program when the user enters the data “ThiS is String with Upper and lower case Letters”, would
+look this this:
+a 2
+c 1
+d 1
+e 5
+g 1
+h 2
+i 4
+l 2
+n 2
+o 1
+p 2
+r 4
+s 5
+t 5
+u 1
+w 2
+
+pseudo/think/code
+
+we can create a string called alphabet
+we can create a string of interest
+
+we can say if any letter of interest appears in alphabet, display it, then count it (each letter)
+some will be zero of course
+audible = we will convert string to list if necessary
+
+for each letter of the alphabet, 
+    if each letter of the alphabet appears in the string of interest, 
+          then increase the count of each letter
+display a list that has the alphabet with each letter count
+ 
+
+alphabet = "abcdefghijklmnop"
+interest_string = "godzilla"
+
+for letter in godzilla: 
+    if letter in alphabet:
+        return letter
+        print(alphabet, letter)
+
+
+all trials below
+# pseudo/think/code
+# we can create an empty dictionary that will house alphabet and count
+# we can create a string called alphabet 
+# we can create a string of interest
+# 
+# we can say if any letter of interest appears in alphabet, display it, then count it (each letter)
+# some will be zero of course
+# audible = we will convert string to list if necessary
+# =============================================================================
+# 
+# 
+# for each letter of the alphabet, 
+#     if each letter of the alphabet appears in the string of interest, 
+#           then increase the count of each letter of the alphabet occuring
+# display a list that has the alphabet with each letter count
+#  
+# =============================================================================
+
+goal_list = {}
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+interest_string = "abcdefghijklmnoppz"
+
+
+
+# =============================================================================
+# for letter in interest_string:  
+#     if letter in alphabet:
+#         goal_list[letter] = goal_list.get(letter,0) + 1
+#         
+# print(goal_list)
+#        
+# 
+# 
+# =============================================================================
+
+# =============================================================================
+# for letter in interest_string:
+#    #print(letter)
+#    if letter in alphabet :
+#         goal_list[letter] = goal_list.get(letter, 0) + 1 
+#        
+# #alphabetize
+# goal_list = list(goal_list.items())
+# goal_list.sort        
+# print(goal_list)
+#         
+# 
+# =============================================================================
+#new pseudo code
+'''
+   for each letter of the alphabet
+        letter count = 0
+        if letter is in new_string
+              increase count by 1
+              
+        display(letter, count)
+        
+'''
+    
+# =============================================================================
+# letter_counts = {}
+# for letter in alphabet:
+#     #letter_counts[letter] = letter_counts.get(letter, 0)
+#     if letter in interest_string:
+#         letter_counts[letter] = letter_counts.get(letter, 0) + 1
+#         
+# print(letter_counts)
+#     
+#     
+# =============================================================================
+    
+    
+letter_count = 0  
+for letter in interest_string: 
+    print(letter)
+    if letter in alphabet:
+        #print(letter)
+        #we succeed here printing which letters are in the alphabet
+        #we need to figure out how to count the individual letters
+        goal_list[letter] = goal_list.get(letter,0) + 1
+        
+        
+print(goal_list)
+    
+    
+    
+ Write a program called alice_words.py that creates a text file named alice_words.txt containing
+an alphabetical listing of all the words, and the number of times each occurs, in the text version of Alice’s
+Adventures in Wonderland. (You can obtain a free plain text version of the book, along with many others, from
+http://www.gutenberg.org.) The first 10 lines of your output file should look something like this:
+
+Word
+Count
+=======================
+a			631
+631			1
+a-piece			1
+abide			1			
+able			94
+about			3
+above			1
+absence			2
+
+Howmanytimes does the word alice occur in the book?
+
+
+#some pseudo code
+
+take text
+split every line into words
+remove punctuation
+count every word
+
+my_text = '''
+Write a program called alice_words.py that creates a text file named alice_words.txt containing
+an alphabetical listing of all the words, and the number of times each occurs, in the text version of Alice’s
+Adventures in Wonderland. (You can obtain a free plain text version of the book, along with many others, from
+http://www.gutenberg.org.) The first 10 lines of your output file should look something like this:
+
+
+          '''
+
+count_words = {}
+phrase_sans_punctuation = ""
+for line in my_story:
+    if line not in string.punctuation: 
+        phrase_sans_punctuation += line
+phrase_sans_punctuation.split()
+for word in phrase_sans_punctuation
+    count_words[word] = count_words.get(word, 0) + 1
+
+print(count_words)
+
+
+
+
+
+#########################################################################################################################################
+
+
+
+##############Chapter 6 NUMPY 
+
+
+
+# in order to get a a type of list which behaves likea mathematical array or matrix, we use NUmpy
+
+import numpy as np 
+
+a = np.array([2,3,4,5]) 
+
+2 * a 
+
+
+
+###methods
+
+#shape can give you the shape of the matrix
+b = np.array([2,3,8], [5,9,3])
+
+b.shape 
+
+#output is 
+>>> (2,3)
+
+
+##slicing
+slicing is like lists
+
+if want 1th column, then use : to select all items along the first dimension
+then chose correct column index
+
+i.e. 
+if we have 
+2 3 8
+4 5 6 
+
+and want 3, 5 columns then do 
+
+b[:, 1]
+
+
+
+##Methods - Masking
+suppose we have an array/vector and want to return values above a certain cutoff value
+a = np.array([230, 10, 284, 39, 76])
+cutoff = 200
+a > cutoff 
+
+
+masking below
+a[a > cutoff] = 0
+a 
+
+
+if we were diong this the old way, 
+would have to use a loop 
+
+a = np.array([230, 10, 284, 39, 76])
+cutoff = 200
+
+new_a
+for x in a:
+    if x > cutoff: 
+        new_a.append(0)
+    else: 
+        new_a.append(x)
+a = np.array(new_a)
+
+
+
+############## Broadcasting 
+this is way for numpy to be able to do math operations on matrices by forcing one of the matrices to match 
+dimensions of the other. Only dimensions of 1 can be stretched and there has to be some matching
+
+suppose
+>>> a = np.array([
+[0, 1],
+[2, 3],
+[4, 5],
+])
+>>> b = np.array([10, 100])
+>>> a * b
+array([[ 0, 100],
+[ 20, 300],
+[ 40, 500]])
+
+this works since we have a = 3,2 and b = (2, ) b becomes (1, 2) and then can be stretched to 93,2)
+
+if we had a = 2,3 and b = (2, ), be becomes ( 1, 2) but 2,3 is different from (1,2) we would get an error since its three columns in the first. 
+some confusion here
+
+lets try this 
+ c = np.array([
+[0, 1, 2],
+[3, 4, 5],
+])
+b = np.array([10, 100])
+ c * b[:, None]
+array([[ 0, 10, 20],
+[300, 400, 500]])
+
+here we flip the smaller array to match the bigger array's rows so from
+[10, 100]
+to 
+([10,
+ 100])
+
+
+
+Exercises
+Use a mask to multiply all values below 100 in the following list by 2:
+>>> a = np.array([230, 10, 284, 39, 76])
+Repeat this until all values are above 100. (Not manually, but by looping)
+Then, select all values between 150 < a < 200
+
+
+
+a = np.array([230, 10, 284, 39, 76])
+
+masking for below 100 
+a = a[a < 100]
+
+for values in a: 
+    if values < 100:
+        values * 100
+print a
+
+
+a = np.array([230, 10, 284, 39, 76])
+
+
+
+
+#masking for below 100 
+mask = a[a < 100]
+
+#print (mask)
+
+for items in mask:
+    result = items * 5
+    if result > 600:
+        break
+    print(result)
+        
+#hard to get this to run correctly 
+
+
+
+
+############## Chapter 7 Files  ##################################
+We can think of three actions on files (W (write), Read( see contents/print)
+this is like a notebook, we can open a notebook, write to it, read from it , and close it and 
+we know where it is stored
+
+#Writing a file
+Writing our first file ("W")--note it wrote in C:/Users/didier.hirwantwari/.spyder-py3/autosave/test.txt
+
+with open ("test.txt", "w") as myfile: 
+    myfile.write("My first file written from python\n")
+    myfile.write(""--------------------------------\n")
+    myfile.write("Hello, world!\n")
+
+
+####READING a File
+with open("test.txt", "r") as my_new_handle:
+    for the_line in my_new_handle:
+        '''
+           Do something with the line we just read.
+           Here we just print it. 
+        '''
+        print(the_line, end = "")
+
+
+#######turning a file into a list of lines 
+suppose we have a file with a list of our friends and their email addresses but we'd like the list sorted in alphabetical order. 
+read everything into a list of lines
+sort the list
+write the sorted list into another file 
+
+with open("friends.txt", "r") as input_file: 
+    all_lines = input_file.readlines()			#readlines() is a python method that reads all the lines of a file & returns a list of the strings 
+    all_lines.sort()
+
+with open("sortedfriends.txt", "w") as output_file:
+    for line in all_lines:
+        output_file.write(line)
+
+
+
+########### Reading the whole file at once 
+read the complete contents of the file into a string, and then to use our string-processing skills to work with the contents
+we'd use this method if we were interested in the line structure of the file
+
+with open("somefile.txt") as f:			#notice we left out "r" as the second item. if left out Python automatically opens for reading
+    content = f.read()
+words = content.split()
+print("There are (0) words in the file.".format(len(words)))
+
+
+
+####Filter Example----Copy file to another example...copy a file to another file omitting any lines that begin with #
+def filter(oldfile, newfile):
+    with open(oldfile, "r") as infile, open(newfile, "w") as outfile: 
+        for line in infile:
+            #Put any processing logic here
+            if not line.startswith('#'):
+  	        outfile.write(line)
+
+
+
+Above, on line 2 we open two files: the file to read, and the file to write. From line 3, we read teh input file by line. We write the line in teh output file only if the condition on line 5 is true
+
+
+
+###Fetching something from the web
+import urllib.request
+
+url = "http://xml.resource.org/public/rfc/txt/rfc793.txt"
+destination_filename = "rfc793.txt"
+
+urllib.request.url.urlretrieve(url, destination_filename)
+
+word of caution
+The resource we’re trying to fetch must exist! Check this using a browser.
+• We’ll need permission to write to the destination filename, and the file will be created in the “current
+directory” - i.e. the same folder that the Python program is saved in.
+• If we are behind a proxy server that requires authentication, (as some students are), this may require some
+more special handling to work around our proxy. Use a local resource for the purpose of this demonstration!
+• We need to make sure that if we use any data from the web, that we check if the contents are still as we
+expect them to be. A website may change, or it may disappear. It can also be taken over by a new owner
+who might change the contents completely. So before you use data from the internet, make your program
+check if the data is what you want it to be, before executing any code or showing it to any important users!
+
+
+####not saving the request onto a local file but rather in a string
+import requests
+
+url = "http://xml.resource.org/public/rfc/txt/rfc793.txt"
+response = requests.get(url)
+print(response.text)
+
+if we wanted to read teh document line by line, we could do the following in the last line
+
+import requests
+
+url = "http://xml.resource.org/public/rfc/txt/rfc793.txt"
+response = requests.get(url)
+for line in response:
+     print(line)
+
+Exercises 7.10
+Write a program that reads a file and writes out a new file with the lines in reversed order (i.e. the first line in
+the old file becomes the last one in the new file.)
+
+pseudoCade
+open a file (name, w) as handlename
+    handlename.write("first line ")
+
+open the filename handlename
+    read the lines
+    handlename.readlines()
+    for range(len( line, -1) -1, -1)    		#attempt to reverse using range
+       print line 
+somehow push this to a variable called reversed line
+here we can write to new file
+open a filename (name, w) handlenamesorted
+    handlenamesorted.write.reversed line
+
+#attempt at actual code
+
+#write code for writing to a file some lines
+with open ("ordered.txt", "w") as myfile:
+    myfile.write("Its bitsy spikder went up the water spout\n")
+    myfile.write("Down came the rain and it spit the spider out\n")
+    myfile.write("The wheels on the bus go round and round\n")
+
+#the above works
+#lets write code to read the lines then reverse them 
+with open ("ordered.txt", "r") as myreadfile:
+    all_lines = input_file.readlines()		#readlines() is a python method that reads all the lines of a file & returns a list of the strings 
+    all_lines.reverse()
+    print(all_lines) 
+
+#the above works 
+#lets output the lines into a new file
+with open("orderReversed.txt", "w") as output_file:
+    for line in all_lines:
+        output_file.write(line)
+
+#Exercise 2
+#Write a program that reads a file and prints only those lines that contain the substring snake
+
+so here pseudo
+with open( filename, r), as filehandle
+    read the contents of the file by using lines
+    define substring of interest
+    define line of interest = ""
+    start loop
+    for substring in lines: 
+         if substring in lines: 
+              lineofinterest += substring
+    print (lineofinterest)   
+
+excerpt from regular expressions
+# Search for lines that contain 'From'
+import re
+hand = open('mbox-short.txt')
+for line in hand:
+line = line.rstrip()
+if re.search('From:', line):
+print(line)
+
+import re
+
+with open("metalGear", "r") as input_file: 
+   all_lines = input_files.readlines()
+   print(all_lines)
+   for line in all_lines:
+       line = line.rstrip()			#remove all spaces
+       if re.search("snakes", line)
+       print (line)
+   
+
+    
+
+
+Exercise 3
+Write a program that reads a text file and produces an output file which is a copy of the file, except the first
+five columns of each line contain a four digit line number, followed by a space. Start numbering the first line in
+the output file at 1. Ensure that every line number is formatted to the same width in the output file. Use one of
+your Python programs as test data for this exercise: your output should be a printed and numbered listing of the
+Python program.
+
+sooo old file has lines
+fileONe:
+---------------
+--------------
+---------------
+
+CopiedFile:
+1    ------------
+2    ------------
+3    ------------
+
+
+I think this is what they want 
+
+pseuudo code
+original file
+we open (filename, read) as a handle:
+     name all the lines using a loop or readlines
+     loop would be 
+     for lines in handle
+         print(lins, "")
+
+copied file
+count = 0
+layout = "{0:>4}{1:>4}{2:>4}{3:>4}{4:>4}{5:>4}"
+with open (newcopiedfilename, write) as newhandle
+    print(layout.format("col1", "col2", "col3", "col4", "col5", "col6"))
+    for line in lines:
+        count +=1
+        some formatting here
+        
+        print(layout.format(count +=1, count +=1, count +=1, count +=1,count +=1, lines)
+
+
+
+
+
+
+
+Further Exercises can be done here 
+
+
+
+################## Chapter 8 Modules
+
+import random
+
+#Create a black box object that generates random numb ers
+rng = random.Random()
+
+dice_throw = rng.randrange(1,7)			#Return an int, one of 1,2,3,4,5,6,7
+delay_in_seconds = rng.random() * 5
+
+
+#cshuffle a card deck
+cards = list(range(52))		#generate ints [0..51]
+				#representing a pack of cards
+
+rng.shuffle(cards)		#Shuffle the pack
+
+
+
+
+###Picking balls from bags, throwing dice, shuffling a pack of cards
+
+let's  generate a list containing n random ints between a lower and upper bound
+
+imoprt random
+
+def make_random_ints(num, lower_bound, upper_bound):
+    """
+       Generate a list containig num random ints between lower_bound
+       and upper_bound. upper_bound is an open bound
+    """
+
+    rng = random.Random()			#create a random number generator
+    result = []
+    for i in range(num):
+        result.append(rng.randrange(lower_bound, upper_bound)
+    return result
+
+
+The issue with the above code is that we can get duplicates
+so we can update by adding something that says if we have the required amount of numbers and 
+they are not reapeated then get out
+
+import random
+
+def make_random_ints_no_dups(num, lower_bound, upper_bound):
+   """
+      Generate a list containing num random ints between
+      lower_bound and upper_bound. upper_bound is an open bound. 
+      the result list cannot contain duplicates
+   """
+   result = []
+   rng = random.Random()
+   for i in range(num):
+       while True: 
+           candidate = rng.randrange(lower_bound, upper_bound)
+           if candidate not in result:
+               break
+       result.append(candidate)
+   return result
+
+xs = make_random_ints_no_dups( 5, 1, 100000)
+print(xs)
+
+
+
+
+###the time module
+lets build a sum function that sums up numbers and compare it to python's sum version
+
+import time
+
+def do_my_sum(xs):
+    sum = 0
+    for v in xs: 
+        sum += v
+    return sum
+
+
+sz = 1000000			#lets have a million elements in the list
+testData = range(sz)
+
+t0 = time.clock()
+my_result = do_my_sum(testData)
+t1 = time.clock()
+
+print("my_result = {0} (time taken = {1:.4f} seconds)".format(my_result, t1- t0))
+
+t2 = time.clock()
+their_result = sum(testdata)
+t3 = time.clock()
+print("their_result = {0} (time taken = {1:.4f} seconds)".format(their_result, t3 - t2))
+
+
+
+
+
+
+
+
+
+###########Exercises   8.1 Modules
+Exercise 1 
+Open help for the calendar module
+a Try the following: 
+
+import calendar
+cal = calendar.TextCalendar()			#create an instance
+cal.pryear(2012)				#What happens here? 
+
+
+
+Observe that the week starts on Monday. An adventurous CompSci student believes that it is better mental
+chunking to have his week start on Thursday, because then there are only two working days to the weekend,
+and every week has a break in the middle. Read the documentation for TextCalendar, and see how you can
+help him print a calendar that suits his needs.
+
+big Q. how to access TextCalendar?
+A. docs.python.org/3/library/calendar
+
+class calendar.TextCalendar(firstweekday=0)
+
+soooo
+lets change TextCalendar() to TextCalendar(firstweekday=3) and see what happens 
+
+
+c. Find a function to print just the month in which your birthday occurs this year.
+TextCalendar(prmonth(1987, 5, w=0, l = 0)
+
+
+
+
+#d. Try this:
+d = calendar.LocaleTextCalendar(6, "SPANISH")
+d.pryear(2012)
+Try a few other languages, including one that doesn’t work, and see what happens.
+
+
+e. Experiment with calendar.isleap. What does it expect as an argument? What does it return as a
+result? What kind of a function is this?
+
+Exercise 2
+
+ Open help for the math module.
+a. How many functions are in the math module?
+
+
+import math
+help(math)
+dir(math)
+
+
+###################################################################################################################################################################
+
+
+######################################  Back to Think Python 3rd Edition ###################################
+############ Chap 10 Recursion
+first example of recursion ---Drawing Fractals 
+
+Recursion : The ability for a function to call itself in order to solve smaller subproblems
+---Defining something in terms of itself 
+
+
+Fractals example
+Now let us think about it the other way around. To draw a Koch fractal of order 3, we can simply draw four order 2
+Koch fractals. But each of these in turn needs four order 1 Koch fractals, and each of those in turn needs four order 0
+fractals. Ultimately, the only drawing that will take place is at order 0. This is very simple to code up in Python:
+
+
+
+
+
+def main(): 
+
+    import turtle
+
+    #set up window
+    window = turtle.Screen()
+    window.bgcolor("lightgreen")
+    alex = turtle.Turtle()
+
+    def koch(tortoise, order, size): 
+
+        """
+           Make turtle tortoise draw a Koch fractal of 'order' and 'size'
+           Leave the turtle facing the same direction
+        """
+
+        if order == 0:				# base case
+            tortoise.forward(size)
+        else: 
+            koch(tortoise, order-1, size/3)	#go 1/3 of the way
+            tortoise.left(60)
+            koch(tortoise, order-1, size/3)	#go 1/3 of the way
+            tortoise.right(120)
+            koch(tortoise, order-1, size/3)	#go 1/3 of the way
+            tortoise.left(60)
+            koch(tortoise,order-1, size/3)
+
+    koch(alex, 4, 9)
+
+
+'''
+   as a note when using an IDLE then type the program and to make it work 
+   call main afterwards
+   also note Koch(tortoise, order, size) works with much larger sizes than order 
+'''
+
+main() 
+
+
+We can tighten up the code by using a loop under the else
+
+
+def main(): 
+
+    import turtle
+
+    #set up window
+    window = turtle.Screen()
+    window.bgcolor("lightgreen")
+    alex = turtle.Turtle()
+
+    def koch(tortoise, order, size): 
+
+        """
+           Make turtle tortoise draw a Koch fractal of 'order' and 'size'
+           Leave the turtle facing the same direction
+        """
+
+        if order == 0:				# base case
+            tortoise.forward(size)
+        else: 
+           for angle in [60, -120, 60, 0]: 
+               koch(tortoise, order-1, size/3)
+               tortoise.left(angle)
+
+    koch(alex, 3, 60)
+
+
+
+main() 
+
+#high Level view 
+def main():
+    def factorial(n):
+        if n == 0:
+            return 1
+        else:
+            result = n * factorial(n - 1)
+            print (result)
+            return result
+    print(factorial(5))
+
+        
+main()
+
+on paper 
+5!
+n * (n - 1) * (n - 2) * (n - 3) * (n - 4) *    (n - 5)       at which point base case is met 
+5      4        3         2         1         n - 5 + 1
+here if n == 0 return 1
+so lets do for factorial 5
+so do 5 * (factorial (5 - 1)
+then :5 * (factorial (4)
+then :5 *      4         * factorial(4 -1)
+then : 5*      4         *      3           * factorial (3 - 1) 
+then : 5 *     4         *      3           *     2              * factorial (2 - 1)
+
+
+processing recursive number lists
+Voting example 
+votes coming in from different counties 
+[ Montgomery, franklin, cuyahoga] = [345, [45, 456, 342], 897]
+
+sum([[345, [45, 456, 342], 897])
+this returns an error because this is a nested list
+
+
+recursive way to do this 
+def main(): 
+
+    def recursive_sum(nested_number_list): 
+    """Returns the total sum of all elements in nested_number_list"""
+    total = 0
+    for element in nested_number_list: 
+        if type(element) is list: 
+             total += recursive_sum(element)
+        else: 
+             total += element
+    return total 
+
+main()
+
+We can do this alternatively
+
+def main(): 
+    
+    def recursive_sum(nested_number_list): 
+         """returns the total sum of all elements in nested_number_list"""
+         if len(nested_number_list) == 0: 
+             return 0
+         head, *tail = nested_number_list			#Assign he first element of nested_number_list to headand the rest to tail
+         if isinstance(head,list):				#if head is a list....
+             return recursive_sum(head) + recursive_sum (tail)
+         else: 
+             return head + recursive_sum(tail)
+
+
+main()
+
+let's find a max in our recursion
+def main(): 
+
+    def recursive_max(nested_list):
+    """
+       Find the maximum in a recursive structure of lists
+       within other lists
+       Precondition: no lists or sublists are empty
+    """
+    largest = None
+    first_time = True
+    for element in nested_list: 
+        if type(element) is list: 
+            value = recursive_max(element)
+        else: 
+            value = element
+
+        if first_time or value > largest: 
+            largest = value
+            first_time = False
+
+     return largest
+
+
+checking for recursion runtime error
+def recursion_depth(number): 
+    print("{0}, ".format(number), end = "")
+    recursion_depth(number + 1)
+
+recursion_depth(0)
+
+
+
+
+fibonnaci example for recursion 
+fib(0) = 0
+fib(1) = 1
+fib(n) = fib(n-1) + fib(n-2) for n >= 2
+
+def fib(n):
+    
+    if n <= 1: 
+        return n
+    else: 
+        return fib(n-1) + fib(n-2) 
+
+
+     #check how fast/slow fib(n) is. we can use iterative procedures and get bet      ter and faster processing times
+
+import time
+t0 = time.perf_counter()			# use time.perf_counter()
+n = 35
+result = fib(n)
+t1 = time.perf_counter()
+
+print("fib({0}) = {1}, ({2:.2f} secs) ".format(n, result, t1-t0))
+
+    
+fib(n)
+
+#above worked 
+
+
+Example of Recursive Files 
+
+use following path for below C:\Users\didier.hirwantwari\AppData\Roaming
+
+#def main(): 
+import os
+    
+def get_dirlist(path): 
+    """
+            Return a sorted list of all entries in path
+            this returns just the names, not the full path to the names
+    """
+    dirlist = os.listdir(path)
+    dirlist.sort()
+    return dirlist
+ 
+def print_files(path, prefix = ""): 
+    """
+    Print recursive listing of contents of path 
+    """
+    if prefix == "":						#detect outermost call, print a heading
+        print("Folder listing for ", path)
+        prefix = "| "
+
+     
+    dirlist = get_dirlist(path)
+    for file in dirlist: 
+        print (prefix + file)					#print the line 
+        fullname = os.path.join(path, file)			#turn name into full pathname
+        if os.path.isdir(fullname):				#if a directory, recurse. 
+            print_files(fullname, prefix + "| ")
+
+   
+print_files(r'C:\Users\didier.hirwantwari\AppData', prefix = "")
+                         
+
+main()
+
+
+############## 10.6 An animated fractal using PyGame #################################
+
+import pygame, math
+pygame.init() # prepare the pygame module for use
+
+# Create a new surface and window.
+surface_size = 1024
+main_surface = pygame.display.set_mode((surface_size,surface_size))
+my_clock = pygame.time.Clock()
+
+
+def draw_tree(order, theta, size, position, heading, color=(0,0,0), depth=0):
+
+    trunk_ratio = 0.29 # How big is the trunk relative to whole tree?
+ trunk = size * trunk_ratio # length of trunk
+ delta_x = trunk * math.cos(heading)
+ delta_y = trunk * math.sin(heading)
+ (u, v) = position
+ newposition = (u + delta_x, v + delta_y)
+ pygame.draw.line(main_surface, color, position, newposition)
+
+ if order > 0: # Draw another layer of subtrees
+
+ # These next six lines are a simple hack to make the two major halves
+ # of the recursion different colors. Fiddle here to change colors
+ # at other depths, or when depth is even, or odd, etc.
+ if depth == 0:
+ color1 = (255, 0, 0)
+ color2 = (0, 0, 255)
+ else:
+ color1 = color
+ color2 = color
+
+ # make the recursive calls to draw the two subtrees
+ newsize = size*(1 - trunk_ratio)
+ draw_tree(order-1, theta, newsize, newposition, heading-theta, color1, depth+1)
+ draw_tree(order-1, theta, newsize, newposition, heading+theta, color2, depth+1)
+
+
+ def gameloop():
+
+ theta = 0
+ while True:
+
+ # Handle evente from keyboard, mouse, etc.
+ event = pygame.event.poll()
+ if event.type == pygame.QUIT:
+ break;
+
+ # Updates - change the angle
+ theta += 0.01
+
+ # Draw everything
+ main_surface.fill((255, 255, 0))
+ draw_tree(9, theta, surface_size*0.9, (surface_size//2, surface_size-50), -
+˓→math.pi/2)
+
+ pygame.display.flip()
+ my_clock.tick(120)
+
+
+ gameloop()
+
+
+
+
+#Mutual Recursion
+In addition to a function calling just itself, it is also possible to make multiple functions that call eachother. This is
+rarely really usefull, but it can be used to make state machines.
+1 def function_a(n): # Do things associated with state A
+2 if n == 0:
+3 return
+4 print('a')
+5 function_b(n - 1) # Proceed to state B
+6
+7
+8 def function_b(n): # Do things associated with state B
+9 print('b')
+10 function_a(n - 1) # Proceed to state A
+
+
+
+
+
+######################## Exercises Recursion Chap 10 
+Exercise 1 modify the fractal so that it draws a full octagonal shape rather than the top section 
+
+the top section is of order 2. 
+so we can do an order 2 and then play around with the angles
+we can do so by increasing the len of the angle array used. 
+
+
+def main(): 
+
+    import turtle
+
+    #set up window
+    window = turtle.Screen()
+    window.bgcolor("lightgreen")
+    alex = turtle.Turtle()
+
+    def koch(tortoise, order, size): 
+
+        """
+           Make turtle tortoise draw a Koch fractal of 'order' and 'size'
+           Leave the turtle facing the same direction
+        """
+
+        if order == 0:				# base case
+            tortoise.forward(size)
+        else: 
+           for angle in [60, -120, 60,-120, 60, -120, 60, -120, 60 0]: 
+               koch(tortoise, order-1, size/3)
+               tortoise.left(angle)
+
+    koch(alex, 3, 60)
+
+
+
+main() 
+
+Draw a Cesaro torn line fractal, of the order given by the user. We show four different lines of orders
+0,1,2,3. In this example, the angle of the tear is 10 degrees.
+
+Again this is a matter of angles, at least this programmer thinks 
+
+
+
+def main(): 
+
+    import turtle
+
+    #set up window
+    window = turtle.Screen()
+    window.bgcolor("lightgreen")
+    alex = turtle.Turtle()
+
+    def koch(tortoise, order, size): 
+
+        """
+           Make turtle tortoise draw a cesaro tear of 'order' and 'size'
+           Leave the turtle facing the same direction
+        """
+
+        if order == 0:				# base case
+            tortoise.forward(size)
+        else:
+            tortoise.forward(size) 
+            koch(tortoise, order-1, size/3)	#go 1/3 of the way
+            tortoise.right(120)
+            koch(tortoise, order-1, size/3)	#go 1/3 of the way
+            tortoise.left(10)
+            koch(tortoise, order-1, size/3)	#go 1/3 of the way
+            tortoise.right(120)
+            koch(tortoise,order-1, size/3)
+
+    koch(alex, 1, 10)
+
+
+main() 
+
+
+
+
+
+
+
+########################### Classes and Objects - The basics ############################################
+############### Object Oriented programming 
+
+lets create a class that will be helpful to introduce the concept to us. We will create a point. a point has 
+an x and y coordinate. it can move, be operated on, etc
+
+def main(): 
+
+    class Point:
+        """ Point class represents and manipulates x, y coords. """
+        
+        def __init__(self): 
+            """ create a new point at the origin """
+            self.x = 0
+            self.y = 0 
+            
+    p = Point()
+    q = Point()
+    
+    print(p.x , p.y, q.x, q.y)
+        
+main()      
+        
+       
+#We have already worked with objects
+
+from turtle import *
+
+tess = Turtle()			#instantiate objects of type Turtle 
+alex = Turtle()
+
+
+
+We can use dot notation as part of any expression, so the following statements are legal:
+
+print("(x={0}, y={1})".format(p.x, p.y))
+distance_squared_from_origin = p.x * p.x + p.y * p.y
+  
+
+Can make assigning values to x and y coordinates easier and more streamlined by changing the class by way of changing the constructor
+
+class Point: 
+    """ point class represents and manipulates x, y cords. """
+
+    def __init__(self, x = 0, y = 0):
+        """ Create a new point at x, y """
+        self.x = x
+        self.y = y 
+
+#create objects and access them/print them
+
+p = Point(5, 5)
+
+#access p
+(p.x, p.y)
+
+
+
+##### adding Methods to the class
+
+class Point: 
+    """ Create a new point, at coordinates x, y """
+
+    def __init__(self, x = 0, y = 0): 
+        """ Create a new point at x, y, """
+        self.x = x				#access the variable [self.x] then assign something to the variable
+        self.y = y
+
+    def distance_from_origin(self):
+        """ compute my distance from the origin """
+        return ((self.x ** 2) + (self.y ** 2)) ** 0.5   
+
+
+
+
+Here is a simple function involving our new Point objects:
+1 def print_point(pt):
+2 print("({0}, {1})".format(pt.x, pt.y))
+print_point takes a point as an argument and formats the output in whichever way we choose. If we call
+print_point(p) with point p as defined previously, the output is (3, 4).
+
+
+the above is not really recommended, especially for object oriented programmers. Additionally no one likes chatterbox methods that call print
+instead we define a method in the class to_string that just prints the instance
+
+class Point: 
+    """ Create a new point, at coordinates x, y """
+
+    def __init__(self, x = 0, y = 0): 
+        """ Create a new point at x, y, """
+        self.x = x				#access the variable [self.x] then assign something to the variable
+        self.y = y
+
+    def distance_from_origin(self):
+        """ compute my distance from the origin """
+        return ((self.x ** 2) + (self.y ** 2)) ** 0.5   
+
+    def to_string(self): 
+       return "({0}, {1})".format(self.x, self.y)
+
+
+But don’t we already have a str type converter that can turn our object into a string? Yes! And doesn’t print
+automatically use this when printing things? Yes again! But these automatic mechanisms do not yet do exactly what
+we want:
+>>> str(p)
+'<__main__.Point object at 0x01F9AA10>'
+>>> print(p)
+'<__main__.Point object at 0x01F9AA10>'
+
+Python has a clever trick up its sleeve to fix this. If we call our new method __str__ instead of to_string, the
+Python interpreter will use our code whenever it needs to convert a Point to a string. Let’s re-do this again, now:
+1 class Point:
+2 # ...
+3
+4 def __str__(self): # All we have done is renamed the method
+5 return "({0}, {1})".format(self.x, self.y)
+
+ we hav eto be careful to run the class again with the method 
+then we can see it work 
+
+############Instances as return values 
+lets return a midpoint the old way between two points by using a function
+
+def midpoint(p1, p2):
+    """ Return the midpoint of points p1 and p2 """
+    mx = (p1.x + p2.x) / 2
+    my = (p1.y + p2.y) / 2
+    return Point (mx, my)
+
+this function creates and returns a new Point object:
+
+p = Point(4, 5)
+q = Point(8, 3)
+r = midpoint(p, q)
+r
+
+###new method that calculates teh middpoin by calling it half point
+
+def halfway(self, target):
+    """ Return the halfway point between myself and teh target """
+    mx = (self.x + target.x) / 2
+    my = (self.y + self.y) / 2
+    return Point (mx, my)
+
+#careful here the function above isn't taking two variables ,self and target...its only taking target
+#so to call it we are doing initial point = self.function(point number two)
+self is referrring to "we have a point object and want to find the distance between it and a target
+
+
+to use teh above
+create two points p and q
+then create r = p.halfway(q)
+or
+print(Point(3,4).halfway(Point(5, 12))_
+
+
+############ Exercises Classes and Objects 
+
+1. Rewrite the distance function from the chapter titled Fruitful functions so that it takes two Points as
+parameters instead of four numbers.
+ 
+old distance function 
+
+def distance( x1, y1, x2, y2): 
+    dx = x2 - x1 
+    dy = y2 - y1
+    dsquared = dx*dx + dy*dy
+    result = dsquared ** 0.5
+    return result
+
+
+version with two Points
+as a method
+
+def distance( ptOne, ptTwo):
+    dx = ptOne.x - ptTwo.x
+    dy = ptOne.y - ptTwo.y
+    dsquared = dx*dx + dy*dy
+    result = dsquared** 0.5
+    return result
+
+
+
+2. Add a method reflect_x to Point which returns a new Point, one which is the reflection of the point
+about the x-axis. For example, Point(3, 5).reflect_x() is (3,-5)
+
+def reflect_x(self): 
+    """returns the reflection of the given point over the x axis
+    reflect = self.y * (-1)
+    return Point(self.x, reflect)
+
+
+3. Add a method slope_from_origin which returns the slope of the line joining the origin to the point. For
+example,
+>>> Point(4, 10).slope_from_origin()
+2.5
+What cases will cause this method to fail?
+
+
+
+
+
+4. The equation of a straight line is “y = ax + b”, (or perhaps “y = mx + c”). The coefficients a and b completely
+describe the line. Write a method in the Point class so that if a point instance is given another point, it will
+compute the equation of the straight line joining the two points. It must return the two coefficients as a tuple of
+two values. For example,
+>>> print(Point(4, 11).get_line_to(Point(6, 15)))
+>>> (2, 3)
+This tells us that the equation of the line joining the two points is “y = 2x + 3”. When will this method fail?
+
+def get_line_to(self, target)
+    """ return coeffd (m, b) for eqt of line y = mx + b """
+    m = (target.y - self.y) / (tart.x) - self.x)
+    b = target.y - (m * target.x)
+    return (m, b)
+
+
+
+
+5. Given four points that fall on the circumference of a circle, find the midpoint of the circle. When will this
+function fail?
+Hint: You must know how to solve the geometry problem before you think of going anywhere near program
+ming.
+
+we can use the midpoint formula
+
+def midpoint(p1, p2):
+    """ Return the midpoint of points p1 and p2 """
+    mx = (p1.x + p2.x) / 2
+    my = (p1.y + p2.y) / 2
+    return Point (mx, my)
+
+the key here is that we are assuming the points are accross from each other. meaning 
+or actually we can use a square inside a circle. Suppoese the four points are equally
+
+
+More Classes examples
+from python-textbook.readthe docs.io/en/latest/classes.html
+
+import datetimne
+
+class Person:
+
+    def __init__(self, name, surname, birthdate, address, telephone, email):
+        self.name = name
+        self.surname = surname
+	self.birthdate = birthdate
+
+	self.address = address
+	self.telephone = telephone
+	self.email = email
+
+    #Methods
+    def age(self):
+        today = datetime.date.today()
+        age = today.year - self.birthdate.year
+	
+	if today < datetime.date(today.year, self.birthdate.month, self.birthdate.day):
+            age -= 1
+    return age
+
+
+#create an instance of Person
+
+person = Person("Jane", "Doe", datetime.date(1992, 3, 12), # year, month, day
+         "No.12 Short Street, Greenville", 
+	 "555 456 0987", 
+         "Jane.doe@example.com" )
+
+print(person.name)+
+print(person.email)
+print(person.age())
+
+Exercise 2
+Rewrite the Person class so that a person’s age is calculated for the first time when a new person instance is created, and recalculated (when it is requested) if the day has changed since the last time that it was calculated.
+
+
+
+class Person:
+
+    def __init__(self, name, surname, birthdate, address, telephone, email, age):
+        self.name = name
+        self.surname = surname
+	self.birthdate = birthdate
+        self.age = datetime.date.today() - self.birthdate.year
+        if today < datetime.date(today.year, self.birthdate.month, self.birthdate.day):
+            age = - 1
+        
+
+	self.address = address
+	self.telephone = telephone
+	self.email = email
+
+    #Methods
+    def age(self):
+        today = datetime.date.today()
+        age = today.year - self.birthdate.year
+	
+	if today < datetime.date(today.year, self.birthdate.month, self.birthdate.day):
+            age -= 1
+    return age
+
+
+#create an instance of Person
+
+person = Person("Jane", "Doe", datetime.date(1992, 3, 12), # year, month, day
+         "No.12 Short Street, Greenville", 
+	 "555 456 0987", 
+         "Jane.doe@example.com" )
+
+print(person.name)+
+print(person.email)
+print(person.age())
+
+
+
+####moving on 
+
+
+Class attributes
+these are defined on an instance of a class and are added to the instance the the __init__ method is called. 
+
+can be accessed just like attributes of class can be accessed 
+
+
+import datetime 
+
+
+
+
+class Person:
+    
+    TITLES = ('Dr', 'Mr', 'Mrs', 'Ms')
+
+    def __init__(self, title, name, surname, birthdate, address, telephone, email):
+        
+        if title not in self.TITLES:
+            raise ValueError("%s is not a valid title" % title)
+        
+        self.title = title
+        self.name = name
+        self.surname = surname
+        self.birthdate = birthdate
+ 
+        self.address = address
+        self.telephone = telephone
+        self.email = email
+
+    #Methods
+    def age(self):
+        today = datetime.date.today()
+        age = today.year - self.birthdate.year
+	
+        if today < datetime.date(today.year, self.birthdate.month, self.birthdate.day):
+            age -= 1
+        return age
+
+
+#create an instance of Person
+
+person = Person("Dr", "Jane", "Doe", datetime.date(1992, 3, 12), # year, month, day
+            "No.12 Short Street, Greenville", 
+	        "555 456 0987", 
+            "Jane.doe@example.com" )
+
+print(person.title)
+print(person.name)
+print(person.email)
+print(person.age())
+
+
+
+### can show what we assigned on the console
+### by writing 
+### >>> person.name
+
+### >>> person.TITLES
+Class attributes can also sometimes be used to provide default attribute values:
+
+class Person:
+    deceased = False
+
+    def mark_as_deceased(self):
+        self.deceased = True
+
+this returned None which we don't quite understand yet
+
+
+##Letst do this to our class
+## we can probably use a status key where we provide a number as a method
+## the method then takes number, if number is 0 then 'single' then no if 1 'married'
+
+
+##################### Moving on 
+
+What if we want to add pets to the person class
+class Person:
+    pets = []
+
+    def add_pet(self, pet):
+        self.pets.append(pet)
+
+jane = Person()
+bob = Person()
+
+jane.add_pet("cat")
+print(jane.pets)
+print(bob.pets) # oops!
+
+the above is a bad way to do it 
+
+The better way is to do the following
+
+class Person: 
+ 
+    def __init__(self):
+        self.pets = []   
+
+    def add_pet(self, pet): 
+        self.pets.append(pet)
+
+##create instances of the Person Class
+jane = Person()
+bob = Person()
+
+##add pets to the empty list corresponding to teh person instance
+jane.add_pet("cat")
+print(jane.pets)
+print(bob.pets)
+
+### Note that method definitions are in teh same scope as class scope as class attribute defintions
+so we can use class attributes names as variables in method definitions(wihout self, which is only defin
+ed insided the methods 
+
+in the code below we are able to call upon TITLES without needing self
+
+
+
+Class Person:
+    TITLES = ('Dr', 'Mr', 'Mrs', 'Ms')
+    
+    def __init__(self, title, name, surname, allowed_titles = TITLES): 
+        if title not in allowed_titles:
+            raise ValueError("%s is not a valid title." % title)
+
+        self.title = title
+        self.name = name
+        self.surname = surname
+
+Exercise 3
+Explain the differences between the attributes name, surname and profession, and what values they can have in different instances of this class:
+
+class Smith:
+    surname = "Smith"
+    profession = "smith"
+
+    def __init__(self, name, profession=None):
+        self.name = name
+        if profession is not None:
+            self.profession = profession
+
+
+##Explanation 
+name is a variable 
+surname is a class attribute as is profession
+They would haave the same values I suppose
+
+
+types of way of accessing class attributes
+
+
+
+
+
+
+
+
+##### OOP from python-textbood.readthedocs
+
+class Student: 
+    def __init__(self, name, student_number):
+        self.name = name
+        self.student_number = student_numbe
+        self.classes = 
+6. Create a new class, SMS_store. The class will instantiate SMS_store objects, similar to an inbox or outbox on
+a cellphone:
+my_inbox = SMS_store()
+
+This store can hold multiple SMS messages (i.e. its internal state will just be a list of messages). Each message
+will be represented as a tuple:
+
+(has_been_viewed, from_number, time_arrived, text_of_SMS)
+
+The inbox object should provide these methods:
+ my_inbox.add_new_arrival(from_number, time_arrived, text_of_SMS)
+   # Makes new SMS tuple, inserts it after other messages
+   # in the store. When creating this message, its
+   # has_been_viewed status is set False.
+my_inbox.message_count()
+   # Returns the number of sms messages in my_inbox
+my_inbox.get_unread_indexes()
+   # Returns list of indexes of all not-yet-viewed SMS messages
+my_inbox.get_message(i)
+   # Return (from_number, time_arrived, text_of_sms) for message[i]
+   # Also change its state to "has been viewed".
+   # If there is no message at position i, return None
+
+my_inbox.delete(i)  # Delete the message at index i
+my_inbox.clear()    # Delete all messages from inbox
+   
+   
+Write the class, create a message store object, write tests for these methods, and implement the methods
+
+
+
+
+
+'''
+class Person: 
+    def __init__(self, name, surname, birthdate, address, telephone, email):
+        self.name = name
+        #(...)
+        
+    @classmethod()
+    def from_text_file(cls, filename):
+        #extract all the parameters from the text file
+        return cls(*params)
+  '''      
+
+
+#Class Decorators: 
+## class method has its calling object as teh first parameter
+What are class methods good for? Sometimes there are tasks associated with a class which we can perform using constants and other class attributes, without needing to create any class instances
+
+class Person: 
+    def __init__(self, name, surname, birthdate, address, telephone, email):
+        self.name = name
+        #(...)
+        
+    @classmethod()
+    def from_text_file(cls, filename):
+        #extract all the parameters from the text file
+        return cls(*params)        
+
+
+
+@statix Method
+static method doesn't have the callling object passed into it as teh first parameter. 
+This means that it doesn't have accessto the rest of the class or instance aat all
+
+class Person: 
+    TITLES = ('Dr', 'Mr', 'Mrs', 'Ms')
+    
+    def__init___(self, name, surname):
+    self.name = name
+    self.surname = surname
+
+    def fullname(self):			#Teh instance method is accessible threough self
+        #instance object accessbiel through self
+         
+
+    @classmethodsd
+    def allowed_titles_starting_with(cls, startswith):
+        #class or instance object accissble through cls
+        return [t for t in cls.TITLES if t.startswith(startswith)]
+
+    @staticmethod
+    def allowed_titles_ending_with(endswith):         #class method
+        #no param for class or instance object
+	#we have to use Person directly 
+        return[t for t in Person.TITLES if t.endswith(endswit9
+        
+
+
+
+jane = Person("Jane", "Smith")
+
+print(jane.fullname())
+
+print(jane.allowed_titles_starting_with("M"))
+print(Person.allowed_titles_starting_with("M"))
+
+print(jane.allowed_titles_ending_with("s"))
+print(Person.allowed_titles_ending_with("s"))
+
+This returns 
+Jane Smith
+['Mr', 'Mrs', 'Ms']
+['Mr', 'Mrs', 'Ms']
+['Mrs', 'Ms']
+['Mrs', 'Ms'] 
+
+
+#### @ Property 
+### Setters and Getters 
+## Setters can be inconvenient because they don't allow use of compound assignment operators
+
+class Person:
+    def __init__(self, height):
+        self.height = height
+
+    def get_height(self):
+        return self.height
+
+    def set_height(self, height):
+        self.height = height
+
+jane = Person(153) # Jane is 153cm tall
+
+jane.height += 1 # Jane grows by a centimetre
+jane.set_height(jane.height + 1) # Jane grows again
+
+this returns
+>>> print(jane.height)
+>>> 155
+
+As we can see, incrementing the height attribute through a setter is much more verbose. Of course we could write a second setter which increments the attribute by the given parameter – but we would have to do something similar for every attribute and every kind of modification that we want to perform. We would have a similar issue with in-place modifications, like adding values to lists.
+
+### @property down here we talk about the getter and setter methods which we don't really use in python 
+#### but can be nevertheless used. Disadvantages are that they are verbose and advantages are that they 
+#### provide a way to update an attribute inside the object without affecting any code which uses the object
+
+### Take for example the following example
+For example, suppose that we initially created a Person class which has a fullname attribute, but later we want to change the class to have separate name and surname attributes which we combine to create a full name. If we always access the fullname attribute through a setter, we can just rewrite the setter – none of the code which calls the setter will have to be changed.
+
+
+class Person:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+    @property
+    def fullname(self):
+        return "%s %s" % (self.name, self.surname)
+
+jane = Person("Jane", "Smith")
+print(jane.fullname) # no brackets!
+
+this returns
+Jane Smith
+
+###Decorators
+Can be used to define a setter and deleter for our attribute ( a deleter willl delete the attribute from our object)
+the getter, setter and deleter methods must all have the same name
+
+
+class Person:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+    @property
+    def fullname(self):
+        return "%s %s" % (self.name, self.surname)
+
+    @fullname.setter
+    def fullname(self, value):
+        # this is much more complicated in real life
+        name, surname = value.split(" ", 1)
+        self.name = name
+        self.surname = surname
+
+    @fullname.deleter
+    def fullname(self):
+        del self.name
+        del self.surname
+
+jane = Person("Jane", "Smith")
+print(jane.fullname)
+
+jane.fullname = "Jane Doe"
+print(jane.fullname)
+print(jane.name)
+print(jane.surname)
+
+
+
+Create a class called Numbers, which has a single class attribute called MULTIPLIER, and a constructor which takes the parameters x and y (these should all be numbers).
+
+1. Write a method called add which returns the sum of the attributes x and y.
+
+2. Write a class method called multiply, which takes a single number parameter a and returns the product of a and MULTIPLIER.
+
+3. Write a static method called subtract, which takes two number parameters, b and c, and returns b - c.
+
+4. Write a method called value which returns a tuple containing the values of x and y. Make this method into a property, and write a setter and a deleter for manipulating the values of x and y.
+
+
+class Numbers: 
+
+    MULTIPLIER = 3.5
+	
+    def __init__(self, x = 0, y = 0):
+        self.x = x
+        self.y = y 
+
+    def add (self, x, y)
+        return x + y 
+
+    #how to call this
+    #nOne = Numbers(x, y)
+    #print(nOne.add())
+
+    @classmethod
+    def multiply(cls, a):
+        return cls.MULTIPLIER * a
+
+    @staticmethod
+    def subtract(b, c):
+        return b - c
+
+
+    @property
+    def value(self):
+        return (self.x, self.y)
+
+    @value.setter
+    def value(self, xy_tuple):
+        self.x, self.y = xy_tuyple
+
+    @value.deleter
+    def value(self):
+        del self.x
+        del self.y
+
+
+Exercise 5
+Create an instance of the Person class from example 2. Use the dir function on the instance. Then use the dir function on the class.
+
+What happens if you call the __str__ method on the instance? Verify that you get the same result if you call the str function with the instance as a parameter.
+
+What is the type of the instance?
+
+What is the type of the class?
+
+Write a function which prints out the names and values of all the custom attributes of any object that is passed in as a parameter.
+
+You should see something like '<__main__.Person object at 0x7fcb233301d0>'.
+
+<class '__main__.Person'> – __main__ is Python’s name for the program you are executing.
+
+<class 'type'> – any class has the type type.
+
+Here is an example program:
+
+def print_object_attrs(any_object):
+    for k, v in any_object.__dict__.items():
+        print("%s: %s" % (k, v))
+
+Overriding magic methods
+we can override other special methods. i.e purpose of _str_ is to output a useful string representation of our object. But by default, if we use the str function on a person object all that we will get is teh class name and an ID. We can write a custom _str_ that shows the values of all the object's properties
+
+----------------------
+    def __str__(self):
+        return "({0}, {1})".format(self.x, self.y)
+---------------
+
+import datetime
+
+class Person:
+    def __init__(self, name, surname, birthdate, address, telephone, email):
+        self.name = name
+        self.surname = surname
+        self.birthdate = birthdate
+
+        self.address = address
+        self.telephone = telephone
+        self.email = email
+
+    def __str__(self):
+        return "%s %s, born %s\nAddress: %s\nTelephone: %s\nEmail:%s" % (self.name, self.surname, self.birthdate, self.address, self.telephone, self.email)
+
+jane = Person(
+    "Jane",
+    "Doe",
+    datetime.date(1992, 3, 12), # year, month, day
+    "No. 12 Short Street, Greenville",
+    "555 456 0987",
+    "jane.doe@example.com"
+)
+
+print(jane)
+
+
+Suppose that we want our person objects to be equal if all their attributes have the same values, and we want to be able to order them alphabetically by surname and then by first name. All of the magic comparison methods are independent of each other, so we will need to overload all of them if we want all of them to work – but fortunately once we have defined equality and one of the basic order methods the rest are easy to do. Each of these methods takes two parameters – self for the current object, and other for the other object:
+
+class Person:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+    def __eq__(self, other): # does self == other?
+        return self.name == other.name and self.surname == other.surname
+
+    def __gt__(self, other): # is self > other?
+        if self.surname == other.surname:
+            return self.name > other.name
+        return self.surname > other.surname
+
+    # now we can define all the other methods in terms of the first two
+
+    def __ne__(self, other): # does self != other?
+        return not self == other # this calls self.__eq__(other)
+
+    def __le__(self, other): # is self <= other?
+        return not self > other # this calls self.__gt__(other)
+
+    def __lt__(self, other): # is self < other?
+        return not (self > other or self == other)
+
+    def __ge__(self, other): # is self >= other?
+        return not self < other
+
+This returns the following after we create persons
+person1 = Person("didier", "solaris")
+person2 = Person("didier", "silaris")
+
+to compare, 
+we will do 
+>>>person1 == person2
+>>>person1 > person2
+
+
+
+Exercise 6
+Here is an example program:
+
+class AnyClass:
+    def __init__(self, **kwargs):
+        for k, v in kwargs.items():
+            setattr(self, k, v)
+
+    def __str__(self):
+        attrs = ["%s=%s" % (k, v) for (k, v) in self.__dict__.items()]
+        classname = self.__class__.__name__
+        return "%s: %s" % (classname, " ".join(attrs))
+
+
+
+
+
+############################################################################################################
+
+#############################################################################################
+
+############################# Back to Think in Python  Chapter 11 Classes & Objects#########
+
+#11.2 Classes and Objects - Digging a little deeper
+#Rectangles
+#How can we represent a rectangle? 
+##one of the common ways is to specify or start with teh upper left hand corner and the size
+
+#Example below
+class Rectangle: 
+    """ A class to manufacture rectangle objects """
+
+    def __init__(self, posn, w, h):
+        """ Initializes rectangle at posn, with width w, heigh h """
+        self. corner = posn
+        self.width = w
+        self.height = h
+
+    def __str__(self): 
+        return "({0}, {1}, {2})".format(self.corner, self.width, self.height)
+
+
+##implement above
+box = Rectangle(Point(0, 0), 100, 200)
+bomb = Rectangle(Point(100, 80), 5 , 10)		# in my video game
+print ("box: ", box)
+print ("bomb: ", bomb)
+
+
+
+#11.2 Classes and Objects - Digging a little deeper
+#Rectangles
+#How can we represent a rectangle? 
+##one of the common ways is to specify or start with teh upper left hand corner and the size
+
+#Example below
+
+
+
+class Rectangle: 
+    """ A class to manufacture rectangle objects """
+
+    def __init__(self, posn, w, h):
+        """ Initializes rectangle at posn, with width w, heigh h """
+        self. corner = posn
+        self.width = w
+        self.height = h
+
+    def __str__(self): 
+        return "({0}, {1}, {2})".format(self.corner, self.width, self.height)
+
+
+##implement above
+##Recall we have to get the point code added 
+
+def main():
+    class Point: 
+        """ Create a new point, at coordinates x, y """
+
+    def __init__(self, x = 0, y = 0): 
+        """ Create a new point at x, y, """
+        self.x = x				#access the variable [self.x] then assign something to the variable
+        self.y = y
+
+    def distance_from_origin(self):
+        """ compute my distance from the origin """
+        return ((self.x ** 2) + (self.y ** 2)) ** 0.5   
+
+    def to_string(self): 
+       return "({0}, {1})".format(self.x, self.y)
+    
+    def halfway(self, target):
+        """ Return the halfway point between myself and teh target """
+        mx = (self.x + target.x) / 2
+        my = (self.y + self.y) / 2
+        return Point (mx, my)
+
+
+
+class Rectangle: 
+    """ A class to manufacture rectangle objects """
+
+    def __init__(self, posn, w, h):
+        """ Initializes rectangle at posn, with width w, heigh h """
+        self. corner = posn
+        self.width = w
+        self.height = h
+
+    def __str__(self): 
+        return "({0}, {1}, {2})".format(self.corner, self.width, self.height)
+
+    #add methods below to change the size of the rectangle and to move the rectangle
+    def grow(self, delta_width, delta_height):
+        """ Grow (or Shrink) this object by the deltas """
+        self.width += delta_width
+        self.height += delta_height
+
+
+    def move(self, dx, dy)
+        """ Move this object by the deltas """
+        self.corner.x += dx 
+        self.corner.y += dy
+
+
+Implementation without grow and move 
+
+
+box = Rectangle(Point(0, 0), 100, 200)
+bomb = Rectangle(Point(100, 80), 5 , 10)		# in my video game
+print ("box: ", box)
+print ("bomb: ", bomb)
+
+
+implementation with move and grow 
+r = Rectangle(Point(10, 5), 100, 50)
+print (r)
+
+((10, 5), 100, 50)
+r.grow(25, -10)
+print(r)
+((10, 5), 125, 40)
+r.move(-10, 10)
+print(r)
+((0, 15), 125, 40) 
+
+
+comparison of objects
+if we create two similar points
+
+p1 = Point(3, 4)
+p2 = Point(3, 4)
+
+and compare 
+p1 is p2 
+False
+
+they refer to the same reference not the contents
+
+if we assign p1 to p3 and compare
+p1 is p3 
+True
+
+the above comparisons are shallow equality
+
+to compare actual contents we use deep equality
+def same_coordinates(p1,p2):
+    return (p1.x == p2.x) and (p1.y == p2.y)
+
+
+Copying and aliasing 
+can copy a point using copy module
+it defaults to shallow copy which can copy a single object
+for more complex objects, we call upon deep copy in the copy module
+
+import copy
+p1 = Point (4, 5)
+p2 = copy.copy(p1)
+
+p1 is p2 
+False
+
+same_coordinates (p1, p2)
+True
+
+deepcopy use 
+b1 = Rectange(0, 0), 100, 200) 
+b2 = copy.deepcopy(b1)
+
+
+
+class Point:
+    """ Point class for representing and manipulating x,y coordinates. """
+
+    def __init__(self, initX, initY):
+
+        self.x = initX
+        self.y = initY
+
+    def getX(self):
+        return self.x
+
+    def getY(self):
+        return self.y
+
+#################### 11.2.6 Exercises   ###################
+1. Add a method area to the Recange class that returns the area of any instance
+
+def areaCalc(self):
+    """ return the area using (lxh) width * height) """
+    reult = self.w * self.h
+    return result
+
+
+2. Write a flip method in the Rectangle class that swaps the width and the height of any rectangle instance:
+lets see
+suppose w = 5 and h = 10
+want w = 10 and h = 5
+can use deepcopy
+
+def fliptest( a, b):
+    we flip 
+    temp = a
+    a = copy.deepcopy(b)
+    b = temp
+    
+actual code: 
+def flip(self):
+        """ flip width and height """
+        temp = self.height
+        newHeight = copy.deepcopy(self.width)
+        newWidth = temp
+        return ("oldwidth: ",self.width, "old height: ", self.height, "\nnew widht: ", newWidth,"new height: ",  newHeight)
+    
+   
+
+4. Write a new method in the Rectangle class to test if a Point falls within the rectangle. For this exercise,
+assume that a rectangle at (0,0) with width 10 and height 5 has open upper bounds on the width and height, i.e.
+it stretches in the x direction from [0 to 10), where 0 is included but 10 is excluded, and from [0 to 5) in the y
+direction. So it does not contain the point (10, 2). These tests should pass:
+
+r = Rectangle(Point(0, 0), 10, 5)
+test(r.contains(Point(0, 0)))
+test(r.contains(Point(3, 3)))
+test(not r.contains(Point(3, 7)))
+test(not r.contains(Point(3, 5)))
+test(r.contains(Point(3, 4.99999)))
+test(not r.contains(Point(-3, -3)))
+
+sooooo 
+if x >= width or y height or x < 0 or y < 0:
+    return ("Point not within rectangle")
+return (self.x, self.y)
+
+
+Exercise 5. 
+In games, we often put a rectangular “bounding box” around our sprites. (A sprite is an object that can move
+about in the game, as we will see shortly.) We can then do collision detection between, say, bombs and spaceships,
+by comparing whether their rectangles overlap anywhere.
+Write a function to determine whether two rectangles collide. Hint: this might be quite a tough exercise! Think
+carefully about all the cases before you code.
+
+
+
+so I would assume rectangles would collide (Supppose rectangles A and B:
+ if their coordinates are the same. 
+ if any corner of rectangle x hits a corner
+ if any corner of rectangle x hits a side of Rectangle B
+ if any side of A hits any side f B 
+     this should be true for both A and B
+
+def collide(rectA, rectB): 
+    rectA = Rectangle((corner), length, height)
+    rectB = Rectangle((corner), length, height)
+        if rectA.corner ==  rectB.corner 
+             return ("Collision warning")
+             .
+             .
+             .
+
+        #for a corner to side 
+        for any values between min and max of x for B for side x
+             if rectA.corner.something.xvalue == rectB.sidesomething[i]
+                     return ("Collision error")
+
+Probably have to design rectangle object in a way that makes sides. 
+Hard to access x value of a tuple for now 
+say tuple corner is ( 0, 0) 
+to access this we could do corner[0] for x value hmmmmmmmmmm
+
+
+
+
+
+    ultimately we will match on points. We might have to define sides as well rather 
+
+
+
+############## 11.3.1 MyTime ##################################################
+#lets define a class my time
+
+class MyTime: 
+    """ Class to display time and add and stuff"""
+    def __init__(self, hrs = 0, mins = 0, secs = 0):
+        """ Create a MyTime object initialized to hrs, mins, secs"""
+        self.hours = hrs 
+        self. minutes = mins
+        self.seconds = secs
+
+    def __str__(self): 
+       return "Hr: {0} Mn: {1} Sec: {2}".format(self.hours, self. minutes, self.seconds)
+
+
+tim1 = MyTime(11, 59, 30)
+
+
+
+
+## pure functions 
+we create an add_time function that is a pure function ( does not modify any of the objects passed to it as parameters and it has no side effects 
+such as updated global variables, displaying a value or getting user input. 
+
+def add_time (t1,t2): 
+    h = t1.hours + t2.hours
+    m = t1.minutes + t2.minutes
+    s = t1.seconds + t2.seconds
+    sum_t = MyTime(h, m, s) 
+    return sum_t 
+
+
+
+## Better add_time 
+def add_time(t1, t2): 
+    
+    h = t1.hours + t2.hours
+    m = t1.minutes + t2.minutes
+    s = t1.seconds + t2.seconds
+
+    if s >= 60: 
+        x -= 60
+        m += 1
+
+    if m >= 60: 
+        m -= 60
+        h += 1
+
+    sum_t = MyTime(h, m, s)
+    return sum_t
+
+
+
+### Modifiers 
+#changes or modify one or more objects it gets as parameters
+def increment(t, secs): 
+    t.seconds += secs 
+
+    if t.seconds >= 60: 
+        t.seconds -= 60
+        t.minutes += 1
+
+    if t.minutes >= 60:
+        t.minutes -= 60
+        t.hours += 1
+
+
+## what if seconds is much greater than sixty? In that case, it is not enough to carry once; we have to keep doing it until seconds is less than 
+sixty. One solution is to replace  the if statements with while statements
+
+def increment(t, seconds): 
+    t.seconds += seconds
+
+    while t.seconds >= 60:
+        t.seconds -= 60
+        t.minutes += 1
+
+    while t.minutes >= 60: 
+        t.minutes -= 60
+        t.hours += 1 
+
+##### Converting increment to a method 
+## 
+def increment (self, seconds):
+    self.seconds += seconds
+
+    while self.seconds >= 60: 
+        self.seconds -= 60
+        self.minutes += 1
+
+    while self.minutes >= 60:
+        self.minutes -= 60
+        self.hours += 1
+    
+
+
+############ AHA insight
+In this case, the insight is that a MyTime object is really a three-digit number in base 60! The second component is
+the ones column, the minute component is the sixties column, and the hour component is the thirty-six hundreds
+column.
+
+this is to mean that there are 60 secs in a minute, 60 minutes in an hour , and 3600 seconds in an hour
+
+When we wrote add_time and increment, we were effectively doing addition in base 60, which is why we had
+to carry from one column to the next.
+This observation suggests another approach to the whole problem — we can convert a MyTime object into a single
+number and take advantage of the fact that the computer knows how to do arithmetic with numbers. The following
+method is added to the MyTime class to convert any instance into a corresponding number of seconds:
+
+
+
+def to_seconds(self):
+    """ Return the number of seconds represented by this instance
+    """
+    return self.hours * 3600 + self.minutes * 60 + self.seconds
+
+now all we need is a way to convere from an integer back to a MYTime object. Sopposing we have tsecs seconds, 
+some integer division and mod operators can do this for us: 
+
+hrs = tsecs // 3600 
+leftoversecs = tsecs % 3600 
+mins = lefoversecs // 60 
+secs = leftoversecs % 60
+
+Lets rewrite the class initializer so that it can cope with initial values of seconds or minutes that are outside the normalized values
+a normalized time would be something lik 3 hours 12 minutes and 20 secons. the same time unnormalized could be  hours 70 minutes and 140
+seconds
+
+class MyTime: 
+    #
+
+    def __init__(self, hrs = 0, mins = 0, secs = 0): 
+    """
+        Create a new MyTime object initialized to hrs, mins, secs. 
+        The values of mins and secs may be outside the range 0-59
+        but the resulting MyTime object will be normalized
+    """
+
+    #   Calculate total seconds to represent
+    totalsecs = hrs*3600 + mins*60 + secs
+    self.hours = totalsecs // 3600 		#split in h, m, s
+    leftoversecs = totalsecs % 3600
+    self.minutes = leftoversecs // 60
+    self.seconds = leftoversecs % 60
+
+
+    #add a method to check if a time is after another i.e is 5:30PM after 4:30PM 
+    def after(self, time2):
+        """ Return True if I am strictly greater than time2 """
+        if self.hours > time2.hours:
+            return True
+        if self.hours < time2.hours:
+            return False
+
+        if self.minutes > time2.minutes:
+            return True
+        if self.minutes <time2.minutes:
+            return False
+        if self.seconds > time2.seconds:
+            return True
+
+        return False
+
+#We invoke this method on one object and pass the other as an argument: 
+if current_time.after(done_time):
+    print("The Bread will be done before it starts")
+
+
+We can almost read the invocation like English: If the current time is after the done time, then. . .
+
+We could even make our after easier
+
+    def after(self, time2):
+        """ Return True if I am strictly greater than time2 """
+        return self.to_seconds() > time2.to_seconds()
+
+
+What we've essentially done is turn the times to compare into seconds and compared which is the larger integer
+
+# rewrite add_time like this
+def add_time(t1, t2):
+    secs = t1.to_seconds() + t2.to_seconds()
+    return MyTime(0, 0, secs)
+
+
+    
+##########Operator overloading 
+#overloading is using an operator for class objects 
+for example we can overload + to mean addition for all objects of a specific class
+Simple example 
+class Point: 
+#     """ Create a new point, at coordinates x, y """
+# 
+#     def __init__(self, x = 0, y = 0): 
+#         """ Create a new point at x, y, """
+#         self.x = x				#access the variable [self.x] then assign something to the variable
+#         self.y = y
+# 
+#     def distance_from_origin(self):
+#         """ compute my distance from the origin """
+#         return ((self.x ** 2) + (self.y ** 2)) ** 0.5   
+# 
+#     def to_string(self): 
+#        return "({0}, {1})".format(self.x, self.y)
+#     
+#     def halfway(self, target):
+#         """ Return the halfway point between myself and teh target """
+#         mx = (self.x + target.x) / 2
+#         my = (self.y + self.y) / 2
+#         return Point (mx, my)
+# 
+# 
+#     def same_coordinates(p1,p2):
+#         return (p1.x == p2.x) and (p1.y == p2.y)
+# 
+#     def __str__(self): 
+#         return "({0}, {1})".format( self.x, self.y)
+#     
+      def add(self, other): 
+          return Point(self.x + other.x, self.y + other.y)
+
+
+
+If the left operand of * is a Point, Python invokes __mul__, which assumes that the other operand is also a Point.
+It computes the dot product of the two Points, defined according to the rules of linear algebra:
+1 def __mul__(self, other):
+2 return self.x * other.x + self.y * other.y
+If the left operand of * is a primitive type and the right operand is a Point, Python invokes __rmul__, which
+performs scalar multiplication:
+1 def __rmul__(self, other):
+2 return Point(other * self.x, other * self.y)
+The result is a new Point whose coordinates are a multiple of the original coordinates. If other is a type that cannot
+be multiplied by a floating-point number, then __rmul__ will yield an error.
+This example demonstrates both kinds of multiplication:
+>>> p1 = Point(3, 4)
+>>> p2 = Point(5, 7)
+>>> print(p1 * p2)
+43
+>>> print(2 * p2)
+(10, 14)
+What happens if we try to evaluate p2 * 2? Since the first parameter is a Point, Python invokes __mul__ with 2
+as the second argument. Inside __mul__, the program tries to access the x coordinate of other, which fails because
+an integer has no attributes:
+>>> print(p2 * 2)
+AttributeError: 'int' object has no attribute 'x'
+Unfortunately, the error message is a bit opaque. This example demonstrates some of the difficulties of object-oriented
+programming. Sometimes it is hard enough just to figure out what code is running.
+
+class Point: 
+    
+
+
+#### Polymorphism 
+This equates to overloading expansion where we can get many types to support our created operations from operator overloading
+
+example multadd
+
+def multadd(x, y, z):
+    return x * y + z
+
+can invoke this using numeric values
+
+>>>multadd(3, 2, 1)
+
+can invoke this using points
+p1 = Point(3, 4)
+p2 = Point(5, 7)
+print (multadd(2, p1, p2))
+>>> (11, 15)
+
+print(multadd(p1, p2, 1))
+44
+In the first case, the
+is multiplied by a scalar and then added to another Point. In the second case, the dot
+Point
+product yields a numeric value, so the third parameter also has to be a numeric value.
+A function like this that can take arguments with different types is called
+polymorphic.
+
+As another example, consider the function front_and_back, which prints a list twice, forward and backward:
+def front_and_back(front):
+    import copy
+    back = copy.copy(front)
+    back.reverse()
+    print(str(front) + str(back))
+
+we notice that there are three operations in here, copy, reverse, and print
+
+Since revers method is a modifier, we make a copy of the list before reversing it. That way this function 
+doesn't modify the list it gets as a parameter
+
+example to using front_and_back to a list
+>>>my_list = [1, 3, 4, 4]
+>>>front_and_back(my_list)
+
+[1,3,4,4] [4,3,2,1]
+
+
+Of course, we intended to apply this function to lists, so it is not surprising that it works. What would be surprising is
+if we could apply it to a Point.
+
+To determine whether a function can be applied to a new type, we apply Python’s fundamental rule of polymorphism,
+called the duck typing rule: If all of the operations inside the function can be applied to the type, the function can be
+applied to the type. The operations in the front_and_back function include copy, reverse, and print.
+
+Not all programming languages define polymorphism in this way. Look up duck typing, and see if you can figure out
+why it has this name.
+
+copy works on any object, and we have already written a __str__ method for Point objects, so all we need is a
+reverse method in the Point class:
+
+
+def reverse(self): 
+    (self.x, self.y) = (self.y, self.x)      # so simple
+
+
+then after defining it, we can pass point(3, 4)
+
+>>> p = Point(3, 4)
+>>> front_and_back(p)
+(3, 4) (4,3) 
+
+
+The most interesting polymorphism is the unintentional kind, where we discover that a function we have already
+written can be applied to a type for which we never planned.
+
+
+11.3.11 Exercises
+Write a Boolean function between that takes two MyTime objects, t1 and t2, as arguments, and returns
+True if the invoking object falls between the two times. Assume t1 <= t2, and make the test closed at the
+lower bound and open at the upper bound, i.e. return True if t1 <= obj < t2.
+
+def to_seconds(self):
+    """ Return the number of seconds represented by this instance
+    """
+    return self.hours * 3600 + self.minutes * 60 + self.seconds
+
+
+
+
+def between(t1, t2):
+    testTime = 0
+    #turn times to seconds
+    t1.to_seconds()
+    t2.to_seconds()
+    if t1 <= obj <= t2:
+        True
+    return False
+
+how define object? 
+we can turn to seconds
+
+
+Continue Exercises later 
+
+
+
+
+##################   11.4 Collections of Objects     #########
+lets design a card class with the following idea in mind 
+
+----suit---
+Spades --> 3
+Hearts --> 2
+Diamonds --> 1
+Clubs --> 0
+
+----rank----
+Jack --> 11
+Queen --> 12
+King --> 13
+
+2 main attributes
+
+
+class Card: 
+    def __init__(self, suit = 0, rank = 0): 
+        self. suit = suit
+        self. rank = rank
+
+    def __str__(self):
+        return "Suit:{0} Rank:{1}".format(self.suit, self.rank)
+
+
+#declare some card objects
+three_of_clubs = Card(0, 3)
+
+card1 = Card(1, 11)
+
+#We can come up with a better way of _str_ by posting definitions and mapping integers to card names through CLASS IDENTIFIERS
+
+class Card: 
+
+    suits = ["Clubs", "Diamonds", "Hearts", "Spades"]
+    ranks = ["narf", "Ace", "2", "3", "4", "5", "6", "7",
+               "8", "9", "10", "Jack", "Queen", "King"]
+
+    def __init__(self, suit = 0, rank = 0): 
+        self. suit = suit
+        self. rank = rank
+
+    def __str__(self):
+        #return "Suit:{0} Rank:{1}".format(self.suit, self.rank)
+         return (self.ranks[self.rank] + " of " + self.suits[self.suit])
+
+
+The advantage of creatint the class identifiers is that we can use any Card object to access the class attributes
+
+card2 = Card(1, 3)
+print(card2.suits[1])
+
+
+ISSUES with aliasing
+Because every Card instance references the same class attribute, we have an aliasing situation. The disadvantage
+is that if we modify a class attribute, it affects every instance of the class. For example, if we decide that Jack of
+Diamonds should really be called Jack of Swirly Whales, we could do this:
+
+>>> card1.suits[1] = "Swirly Whales"
+>>> print(card1)
+
+Jack of Swirly Whales
+The problem is that all of the Diamonds just became Swirly Whales
+
+print (card2)
+3 of Swirly Whales 
+
+It is not usually a good idea to modify class attributes 
+
+
+
+############ Comparing Cards  ###########################
+
+The key here is to decide which is higher, suit or rank 
+In order to make cards comparable, we have to decide which is more important, rank or suit. To be honest, the choice
+is arbitrary. For the sake of choosing, we will say that suit is more important, because a new deck of cards comes
+sorted with all the Clubs together, followed by all the Diamonds, and so on.
+
+We’d like to start with a single method named cmp that houses the logic of ordering. By convention, a comparison
+method takes two parameters, self and other, and returns 1 if the first object is greater, -1 if the second object is
+greater, and 0 if they are equal to each other.
+Some types are completely ordered, which means
+
+def cmp(self, other):
+    #Check the suits
+    if self.suit > other.suit: return 1
+    if self.suit < other.suit: return -1
+    # Suits are the same... check ranks
+    if self.rank > other.rank: return 1
+    if self.rank < other.rank: return -1 
+    # Ranks are the same... it's a tie 
+    return 0
+
+above, Aces appear lower than Deuces(2s)
+We can now define the six special methods that do the overloading of each of the relational operators for us: 
+
+def __eq__(self, other):
+    return self.cmp(other) == 0
+
+def __le__(self, other):
+    return self.cmp(other) <= 0
+
+def __ge__(self, other):
+    return self.cmp(other) >= 0
+
+def __gt__(self, other):
+    return self.cmp(other) > 0
+def __lt__(self, other):
+    return self.cmp(other) < 0
+
+def __ne__(self, other):
+    return self.cmp(other) != 0
+
+
+With the machinery in play, the operators now work as we'd like them to 
+
+
+card1 = Card(1, 11)
+card2 = Card(1, 3)
+card3 = Card(1, 11)
+card1 < card2
+
+card1 == card3
+
+####    Decks of cards 
+Next logical step is to create  class/define a class to represent a Deck. A deck Is of course made up of 
+cards(hint class card) so each Deck object will contain a list of cards as an attribute. manuy card games will need
+at least two different decks - a red deck and a blue deck. 
+
+here we go 
+
+class Deck: 
+    def __init__(self): 
+        self.cards = []
+        for suit in range(4):
+            for rank in range(1, 14): 
+                self.cards.append(Card(suit, rank))			#use of a class in another class
+
+
+The easiest way to populate the deck is with a nested loop. The outer loop enumerates the suits from 0 to 3. The inner
+loop enumerates the ranks from 1 to 13. Since the outer loop iterates four times, and the inner loop iterates thirteen
+times, the total number of times the body is executed is fifty-two (thirteen times four). Each iteration creates a new
+instance of Card with the current suit and rank, and appends that card to the cards list.
+
+With this in place, we can instantiate some decks:
+1 red_deck = Deck()
+2 blue_deck = Deck()
+
+
+
+as usual when we define a new type, we want a method that prints the contents of an instance. to print a Deck, we
+traverse the list and print each Card: 
+
+    def print_deck(self):
+        for card in self.cards:
+   
+
+As an alternative to print_deck, we could write a __str__ method for the Deck class. The advantage of
+__str__ is that it is more flexible. Rather than just printing the contents of the object, it generates a string representation
+that other parts of the program can manipulate before printing, or store for later use.
+         print(card)
+
+    def __str__(self):
+        s = ""
+        for i in range(len(self.cards)):
+            s = s + " " * i + str(self.cards[i]) + "\n"
+        return s 
+
+This example demonstrates several features. First, instead of traversing self.cards and assigning each card to a
+variable, we are using i as a loop variable and an index into the list of cards.
+
+Second, we are using the string multiplication operator to indent each card by one more space than the last. The
+expression " " * i yields a number of spaces equal to the current value of i.
+
+Third, instead of using the print command to print the cards, we use the str function. Passing an object as an
+argument to str is equivalent to invoking the __str__ method on the object.
+
+Finally, we are using the variable s as an accumulator. Initially, s is the empty string. Each time through the loop, a
+new string is generated and concatenated with the old value of s to get the new value. When the loop ends, s contains
+the complete string representation of the Deck, which looks like this:
+ 
+       
+      
+        
+####    11.4.7 ######## Shuffling the deck
+perfectly shuffled deck implies that any card is equally likely to appear 
+We will use the randrange function from the random module
+We will use two integer arguments, a and b, randrange chooses a random integer in the range a <= x < b. 
+Since the upper bound is strictly less than b, we can use the length of a list as the second parameter and 
+we are guaranteed to get a legal index. 
+for example if rng has already been instantiated as a random number source, this expression chooses the index aof a random card in a deck 
+
+rng.randrange(0, len(self.cards))
+
+
+An easy way to shuffle the deck is by traversing the cards and swapping each card with a randomly chosen one. It is
+possible that the card will be swapped with itself, but that is fine. In fact, if we precluded that possibility, the order of
+the cards would be less than entirely random:
+
+def shuffle(self):
+    """ method to shuffle the Deck"""
+    import random()				
+    rng = random.Random()			#create a random generator
+    num_cards = len(self.cards)
+    for i in range(num_cards):
+        j = rng.randrange(i, num_cards)
+            (self.cards[i], self.cards[j]) = (self.cards[j], self.cards[i])
+
+
+Rather than assume that there are fifty-two cards in the deck, we get the actual length of the list and store it in
+num_cards.
+For each card in the deck, we choose a random card from among the cards that haven’t been shuffled yet. Then we
+swap the current card (i) with the selected card (j). To swap the cards we use a tuple assignment:
+         
+
+
+While this is a good shuffling method, a random number generator object also has a shuffle method that can shuffle
+elements in a list, in place. So we could rewrite this function to use the one provided for us:
+
+def shuffle(self):
+    import random
+        rng = random.Random()			#Create a random generator
+        rng.shuffle(self.cards)			#Use random number generator shuffle method
+
+
+###### Removing and dealing cards
+remove is useful, as it takes a card as a parameter and removes it and returns True if the card was in the dect and False 
+otherwise
+
+def remove(self, card):
+    if card in self.cards:
+        self.cards.remove(card)
+        return True
+    else:
+        return False
+
+The in operator returns True if the first operand is in the second. If the first operand is an object, Python uses the
+object’s __eq__ method to determine equality with items in the list. Since the __eq__ we provided in the Card
+class checks for deep equality, the remove method checks for deep equality.
+
+To deal cards, we want to remove and return the top card. The list method pop provides a convenient way to do that: 
+
+def pop(self): 
+    return self.cards.pop()
+
+pop removes the last card in the list, so we are in effect dealing from the bottom of the deck 
+
+one more operation that we are likely to want is the Boolean function is_empty, which returns True if the deck 
+contains no cards: 
+
+def is_empty(self):
+    return self.cards == []
+
+popm 
+
+
+########## 11.4.10 Exercises 
+
+1. Mofify cmp so that Aces are ranked higher than Kings
+
+#I guess we could do two things. 
+#The first thing would be switching self and other, 
+#the second is changing the ranks so that we have ACE in the space of King and King the space of Ace
+
+
+
+###### inheritaaaaaaaance
+Inheritance is the ability to define a new class that is a modified version of an existing class. 
+i.e. Hand of cards is a modified version of Deck of cards
+
+
+#### Hand of cards   11.5.2
+we start by defining Hand 
+
+class Hand(Deck): 
+    pass 
+
+    #the above indicates that that Hand class inherits from the existing Deck class
+
+    def __init__(self, name = ""):
+        self.cards = []
+        self.name = name
+
+it is necessary for just about any game to add and remove cards from the dec. We already have a method of removingggggggcads. 
+lets create a method for adding a card to a hand
+
+    def add(self, card): 
+        self.cards.append(card)
+
+append method adds the new card to the end of the list of cards. 
+
+
+### 11.5.3 Dealing cards
+Now that we have a Hand class, we want to deal cards from the Deck into hands. It is not immediately obvious
+whether this method should go in the Hand class or in the Deck class, but since it operates on a single deck and
+(possibly) several hands, it is more natural to put it in Deck.
+
+deal should be fairly general, since different games will have different requirements. We may want to deal out the
+entire deck at once or add one card to each hand.
+
+deal takes two parameters, a list (or tuple) of hands and the total number of cards to deal. If there are not enough
+cards in the deck, the method deals out all of the cards and stops:
+
+
+    def deal(self, hands, num_cards = 999):
+        num_hands = len(hands)
+        for i in range(num_cards):
+            if self.is_empty():
+                break				# break if out of cards	
+            card = self.pop()           	#Take the top card
+            hand = hands[i % num_hands]		# Whos turn is next 
+            hand.add(card)			# Add the card to the hand
+
+
+
+The second parameter, num_cards, is optional; the default is a large number, which effectively means that all of the
+cards in the deck will get dealt.
+The loop variable i goes from 0 to num_cards-1. Each time through the loop, a card is removed from the deck
+using the list method pop, which removes and returns the last item in the list.
+The modulus operator (%) allows us to deal cards in a round robin (one card at a time to each hand). When i is equal
+to the number of hands in the list, the expression i % num_hands wraps around to the beginning of the list (index
+0).
+
+
+#########11.5.4 Printing a Hand
+to print the contents of a hand              ,  we can take advantage of teh __str__ method inherited from Deck
+>>>deck = Deck()
+>>>deck.shuffle()
+>>>hand = Hand("frank")
+>>>deck.deal([hand],5)
+>>>print (hand)
+
+Hand frank contains
+2 of Spades
+ 3 of Spades
+  4 of Spades
+   Ace of Hearts
+    9 of Clubs
+
+
+Although it is convenient to inherit the existing methods, there is additional information in a Hand object we might
+want to include when we print one. To do that, we can provide a __str__ method in the Hand class that overrides
+the one in the Deck class:
+
+def __str__(self):
+    s = " Hand " + self.name
+    if self.is_empty(): 
+        s += " is empty\n " 
+    else: 
+        s += " contains\n " 
+    return s + Deck.__str__(self)
+
+initially s is a string that identifies the hand. If the hand is empty, the program appends the words is empty and returns s. 
+
+Otherwise, the program appends the word contains and the string representation of teh Deck, computed by invoking the _str_ method in the Deck class on self.
+
+It may seem odd to send self, which refers to the current  Hand, to a Deck method, until you remember it is kind of a Deck. Hand objects can do everything Deck objects can, is it is legal to send a Hand to a Deck method. 
+
+it is legal to use an instance of a subclass in place of an instance of a parent class
+
+
+############## Making a game 
+######################       Old Maid's Hand 
+
+class CardGame: 
+    def __init__(self): 
+        self.deck = Deck()
+        self.deck.shuffle()			# we recall that shuffle is a deck method
+
+
+self.deck.shuffle() is the first instance where an initialization method performs a significant computation beyond initializing attributes. we reca
+
+
+To implement specific games, we can inherit from CardGame and add features for the new game. As an example,
+we’ll write a simulation of Old Maid.
+The object of Old Maid is to get rid of cards in your hand. You do this by matching cards by rank and color. For
+example, the 4 of Clubs matches the 4 of Spades since both suits are black. The Jack of Hearts matches the Jack of
+Diamonds since both are red.
+To begin the game, the Queen of Clubs is removed from the deck so that the Queen of Spades has no match. The
+fifty-one remaining cards are dealt to the players in a round robin. After the deal, all players match and discard as
+many cards as possible.
+When no more matches can be made, play begins. In turn, each player picks a card (without looking) from the closest
+neighbor to the left who still has cards. If the chosen card matches a card in the player’s hand, the pair is removed.
+Otherwise, the card is added to the player’s hand. Eventually all possible matches are made, leaving only the Queen
+of Spades in the loser’s hand.
+In our computer simulation of the game, the computer plays all hands. Unfortunately, some nuances of the real game
+are lost. In a real game, the player with the Old Maid goes to some effort to get their neighbor to pick that card,
+by displaying it a little more prominently, or perhaps failing to display it more prominently, or even failing to fail to
+display that card more prominently. The computer simply picks a neighbor’s card at random.
+
+### OldMaidHand class
+
+class OldMaidHand(Hand): 
+    def remove_matches(self):
+        count = 0
+        original_cards = self.cards[:]
+        for card in original_cards:
+             match = Card(3 - card.suit, card.rank)
+             if match in self.cards: 
+                 self.cards.remove(card)
+                 self.cards.remove(match)
+                 print("Hand {0}: {1} matches {2}"
+                         .format(self.name, card, match))
+                 count += 1
+        return count
+
+We start by making a copy of the list of cards, so that we can traverse the copy while removing cards from the original.Since self.cards is modified in the loop, we don’t want to use it to control the traversal. Python can get quite confused if it is traversing a list that is changing!
+For each card in the hand, we figure out what the matching card is and go looking for it. The match card has the same rank and the other suit of the same color. The expression 3 - card.suit turns a Club (suit 0) into a Spade (suit3) and a Diamond (suit 1) into a Heart (suit 2). You should satisfy yourself that the opposite operations also work.
+
+ If the match card is also in the hand, both cards are removed. The following example demonstrates how to use remove_matches:
+                 
+The following example demonstrates how to use remove_matches:
+>>> game = CardGame()
+>>> hand = OldMaidHand("frank")
+>>> game.deck.deal([hand], 13)
+>>> print(hand)
+Hand frank contains
+Ace of Spades
+ 2 of Diamonds
+  7 of Spades
+   8 of Clubs
+    6 of Hearts
+     8 of Spades
+      7 of Clubs
+       Queen of Clubs
+	7 of Diamonds
+	 5 of Clubs
+	  Jack of Diamonds
+	   10 of Diamonds
+	    10 of Hearts
+>>> hand.remove_matches()
+Hand frank: 7 of Spades matches 7 of Clubs
+Hand frank: 8 of Spades matches 8 of Clubs
+Hand frank: 10 of Diamonds matches 10 of Hearts
+>>> print(hand)
+Hand frank contains
+Ace of Spades
+ 2 of Diamonds
+  6 of Hearts
+   Queen of Clubs
+    7 of Diamonds
+     5 of Clubs
+      Jack of Diamonds
+Notice that there is no __init__ method for the OldMaidHand class. We inherit it from Hand.
+
+
+##11.5.7 OldMaidGame class
+Now we can turn our attention to the game itself . OldMaidGame is  a subclass of CardGame with  new method called play that takes a list of players as a parameter
+
+
+since __init__ is inherited from CardGame , a new OldMaidGame object contains a new shuffled deck: 
+
+class OldMaidGame(CardGame): 
+    def play(self, names): 
+        # Remove Queen of Clubs
+        self.deck.remove(Card(0,12))
+
+    #Make a hand for each player
+    self.hands = []
+    for name in names: 
+        self.hands.append(OldMaidHand(name))
+
+    #Deal the cards
+    self.deck.deal(self.hands)
+    print("--------- Cards have been dealt")
+    self.print_hands()
+
+    # Play until all 50 cards are matched
+    turn = 0 
+    num_hands = len(self.hands)
+    while matches < 25: 
+        matches += self.play_one_turn(turn)
+        turn = (turn + 1) % num_hands
+
+    print("--------- Game is Over")
+    self.print_hands()
+
+we can write print_hands ourselves
+
+    def __str__(self):
+       s = "Hand " + self.name
+       if self.is_empty():
+            s += "is empty\n"
+       else: 
+           s += " contains\n"
+       return s + Deck.__str__(self)
+
+or 
+    def print_hands(self):
+        for hand in self.deck:
+             print(hand)
+
+
+some of the steps of the game have been separated into methods. remove_all_matches traverses the list of hands and invokes remove_matches on each:  
+
+
+def remove_all_matches(self): 
+    count = 0
+    for hand in self.hands:
+        count += hand.remove_matches(
+    return count 
+    
+
+
+
+count is an accumulator that adds up the number of matches in each hand. When we’ve gone through every hand, the total is returned (count).
+
+When the total number of matches reaches twenty-five, fifty cards have been removed from the hands, which means that only one card is left and the game is over.
+
+The variable turn keeps track of which player’s turn it is. It starts at 0 and increases by one each time; when it reaches num_hands, the modulus operator wraps it back around to 0.
+The method play_one_turn takes a parameter that indicates whose turn it is.
+
+ The return value is the number of matches made during this turn:
+
+def play_one_turn(self, 1): 
+    if self.hands[1].is_empty():
+        return 0
+    neighbor = self.find_neighbor(i)
+    picked_card = self.hands[neighbor].pop()
+    self.hands[1].add(picked_card)
+    print("Hand", self.hands[i].name, "picked", picked_card)
+    count = self.hands[i].remove_matches()
+    self.hands[i].shuffle()
+    return count.
+
+If a player’s hand is empty, that player is out of the game, so he or she does nothing and returns 0.
+
+Otherwise, a turn consists of finding the first player on the left that has cards, taking one card from the neighbor, andchecking for matches. Before returning, the cards in the hand are shuffled so that the next player’s choice is random.
+
+The method find_neighbor starts with the player to the immediate left and continues around the circle until it finds a player that still has cards:
+
+def find_neighbor (self, 1):
+    num_hands = len(self.hands)
+    for next in range(1, num_hands):
+        neighbor= (i + next) % num_hands
+        if not self.hands[neighbor].is_empty():
+            return neighbor 
+
+
+If find_neighbor ever went all the way around the circle without finding cards, it would return None and cause an error elsewhere in the program. Fortunately, we can prove that that will never happen (as long as the end of the game is detected correctly).
+
+We have omitted the print_hands method. You can write that one yourself.
+
+The following output is from a truncated form of the game where only the top fifteen cards (tens and higher) were dealt to three players. With this small deck, play stops after seven matches instead of twenty-five.  
+
+
+>>> import cards
+>>> game = cards.OldMaidGame(
+>>> game.play(["Allen", "jeff", "Chris"])
+Hand Allen contains
+King of Hearts
+Jack of Clubs
+Queen of Spades
+King of Spades
+10 of Diamonds
+Hand Jeff contains
+Queen of Hearts
+Jack of Spades
+Jack of Hearts
+King of Diamonds
+Queen of Diamonds
+Hand Chris contains
+Jack of Diamonds
+King of Clubs
+10 of Spades
+10 of Hearts
+10 of Clubs
+Hand Jeff: Queen of Hearts matches Queen of Diamonds
+Hand Chris: 10 of Spades matches 10 of Clubs
+(continues on next page)
+210 Chapter 11. Classes and Objects
+How to Think Like a Computer Scientist: Learning with Python 3 Documentation, Release 3rd
+Edition
+(continued from previous page)
+---------- Matches discarded, play begins
+Hand Allen contains
+King of Hearts
+Jack of Clubs
+Queen of Spades
+King of Spades
+10 of Diamonds
+Hand Jeff contains
+Jack of Spades
+Jack of Hearts
+King of Diamonds
+Hand Chris contains
+Jack of Diamonds
+King of Clubs
+10 of Hearts
+Hand Allen picked King of Diamonds
+Hand Allen: King of Hearts matches King of Diamonds
+Hand Jeff picked 10 of Hearts
+Hand Chris picked Jack of Clubs
+Hand Allen picked Jack of Hearts
+Hand Jeff picked Jack of Diamonds
+Hand Chris picked Queen of Spades
+Hand Allen picked Jack of Diamonds
+Hand Allen: Jack of Hearts matches Jack of Diamonds
+Hand Jeff picked King of Clubs
+Hand Chris picked King of Spades
+Hand Allen picked 10 of Hearts
+Hand Allen: 10 of Diamonds matches 10 of Hearts
+Hand Jeff picked Queen of Spades
+Hand Chris picked Jack of Spades
+Hand Chris: Jack of Clubs matches Jack of Spades
+Hand Jeff picked King of Spades
+Hand Jeff: King of Clubs matches King of Spades
+---------- Game is Over
+Hand Allen is empty
+Hand Jeff contains
+Queen of Spades
+Hand Chris is empty.
+
+
+##### 11.5.9 Exercises
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+################# 12 Exceptions
+
+Catching exceptions
+whenever a runtime error occurs, it creates an exception object. 
+for example, dividing by 0 creates an exception
+
+>>> print(55/0)
+Traceback (most recent call last):
+File "<interactive input>", line 1, in <module>
+ZeroDivisionError: integer division or modulo by zero
+
+so does accessing a non-existent list item
+>>> a = []
+>>> print(a[5])
+Traceback (most recent call last):
+File "<interactive input>", line 1, in <module>
+IndexError: list index out of range
+
+Or trying to make an item assignment on a tuple 
+>>> tup = ("a", "b", "d", "d")
+>>> tup[2] = "c"
+Traceback (most recent call last):
+File "<interactive input>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+
+In each case, the error message on the last line has two parts: the type of error before the colon, and specifics about
+the error after the colon.
+Sometimes we want to execute an operation that might cause an exception, but we don’t want the program to stop. We
+can handle the exception using the try statement to “wrap” a region of code.
+
+for example we might prompt the user for the name of a file and then try to open it. 
+if the file doesn't exist, we don't want the program to crash; we want to hand the exception
+
+"""
+   Recall that for numerical, asking for user input we can use 
+eval(input("Enter(x, y): ")) example as below
+
+simultaneious input using eval
+>>>x, y = eval(input("Enter (x, y): "))
+Enter (x, y): 3, 4
+>>> x 
+3
+>>> y 
+4 
+
+dis does not work with float
+>>> # does not work with float
+>>> x,y = float (input ("Enter (x,y) : ") )
+Enter (x,y) : 3,4
+Traceback (most recent call last) :
+File "<stdin >", line 1, in <module >
+ValueError: could not convert string to float: '3,4'
+
+   
+
+"""
+
+filename = input("Enter a file name: ")  
+try: 
+    f = open (filename, "r")
+except FileNotFoundError:
+    print("There is no file named" , filename)
+
+
+try statement has four separate clauses or parts (try, except, else, finally)
+
+a try clause looks like this: 
+user_input = input('Type a number')
+
+try: 
+    # Try to do something that could fail
+    user_input_as_number = float(user_input)
+
+except Valueerror: 
+    # This will be executed if a ''ValueError'' is raised
+    print("you did not enter a number.")
+
+else: 
+    # this will be executed if not exception got raised in the try statement
+    print('the square of your number is ', user_input_as_number**2)
+
+finally:
+    # this will be excecuted whether or not an exception is raised
+    print ('Thank you')
+
+We should have as little as possible in the try block or else we risk an unexpected exception
+
+if the try block can fail if various way, you can handle different exceptions in the samy try clause
+
+try: 
+    with open (filename) as infile:
+        content = infile.read()
+except FileNotFoundError:
+    print('Teh file does not exist.')
+except PermissionError:
+    print('You are not allowed to read this file.')
+
+
+
+
+# Raising your own exceptions 
+#can our programs deliberately cause its own xceptions? if ur program detec an error condition, we can raise an exception. here is an example
+that gets inpout from the user and checks that the number is non negative : 
+
+def get_age():
+    age = int (input("Please enter your age: "))
+
+    if age < 0: 
+        # Create a new instance of an exception
+        my_error = ValueError("{0} is not a valid age".format(age))
+        raise my_error
+    return age
+
+
+
+Line 5 creates an exception object, in this case, a ValueError object, which encapsulates specific information about
+the error. Assume that in this case function A called B which called C which called D which called get_age. The
+raise statement on line 6 carries this object out as a kind of “return value”, and immediately exits from get_age()
+to its caller D. Then D again exits to its caller C, and C exits to B and so on, each returning the exception object to
+their caller, until it encounters a try ... except that can handle the exception. We call this “unwinding the call
+stack”.
+
+ValueError is one of the built-in exception types which most closely matches the kind of error we want to raise.
+The complete listing of built-in exceptions can be found at the Built-in Exceptions section of the Python Library
+Reference , again by Python’s creator, Guido van Rossum.
+If the function that called get_age (or its caller, or their caller, . . . ) handles the error, then the program can carry on
+
+
+####12.4 The finally clause of the try statement
+A common programming pattern is to grab a resource of some kind—e.g. we create a window for turtles to draw on,
+or we dial up a connection to our internet service provider, or we may open a file for writing. Then we perform some
+computation which may raise an exception, or may work without any problems.
+
+Whatever happens, we want to “clean up” the resources we grabbed — e.g. close the window, disconnect our dial-up
+connection, or close the file. The finally clause of the try statement is the way to do just this. Consider this
+(somewhat contrived) example:
+
+
+
+import turtle 
+import time
+
+def show_poly(): 
+    try: 
+        win = turtle.Screen()		# Grab/create a resource, e.g. a window
+        tess = turtle.Turtle()
+
+
+        # This dialog could be cancelled
+        #   or the conversion to int might fail, or n might be zero.
+        n = int(input("How many sides do you want in your polygon? "))
+        angle - 360 / n 
+
+        for i in range(n): 		# Draw the polygon
+            tess.forward(10)
+            tess.left(angle)
+        time.sleep(3)			# Make program wait a few seconds 
+
+    finally:
+        win.bye()			# Close the turtle's window
+
+show_poly()
+show_poly()
+show_poly()
+
+
+
+###############################################################################################################################
+
+
+################################### Using Symfit      ################### Fitting #####################################
+
+
+Suppose we want to determine the gravitational acceleration. To this end, we could drop an object from the building
+and measure how long it takes for the object to reach the ground with a stopwatch. Newton’s laws predict the following
+model:
+ℎ = 1/2𝑔𝑡^2
+where ℎ is the height from which we dropped the object, and 𝑡 the time it takes to hit the ground. So from our one
+measurement we could now calculate the gravitational acceleration 𝑔.
+
+We can measure the height very accurately, but since we use a stopwatch to measure time, that value is a lot less
+reliable because you might have started and stopped your stopwatch at the wrong moments. Therefore, the result will
+not be very accurate. To make the value more accurate we should repeat the same measurement 𝑛 times to obtain an
+average 𝑡 and use that instead. We’ll get back to this later.
+
+For now we are more interested in the question: is this model correct? To test this question, we drop our object from
+different heights, doing multiple measurements for each height to get reliable values. The data, obtained by simulation
+for health and safety reasons, are given in the following table:
+
+
+y  t    n
+10 1.4 5
+20 2.1 3
+30 2.6 8
+40 3.0 15
+50 3.3 30
+
+Since the model predicts a parabola, we want to fit the data to this model to see how good it works. It might be a bit
+confusing, but ℎ is our x axis, and 𝑡 is the y axis.
+We use the symfit package to do our fitting. You can find the installation instructions here.
+To fit the data to the model we run the following code:
+
+
+import numpy as np 
+from symfit import Variable , Parameter, Fit, Model, sqrt
+
+
+t_data = np.array([1.4, 2.1 , 2.6, 3.0, 3.3])
+h_data = np.array([10, 20, 30, 40, 50])
+
+#We now define your model 
+h = Variable('h')
+t = Variable ('t')
+g = Parameter( 'g')
+
+t_model = Model({t: sqrt(2 * h /g)})
+
+fit = Fit(t_model, h= h_data, t = t_data) 
+fit_result = fir.execute()
+print(fit_result)
+
+
+
+Good morning, 
+
+My name is Didier Hirwantwari (friends call me Hiro), and I am looking for a new dentist. I am currently a patient of Dr. Matt Brown at Dayton Dental Solutions in Centerville and recently found out that my insurance (United Concordia through Tricare) is out of network for them. I looked through Tricare's website and your office was one of the  in-network offices. Wanted to check on that and if true, if you were accepting new patients. 
+
+Thank you, 
+V/r
+Didier 
+
+
+
+
+###########Symfit tutorial #####################
+
+
+#exampe of fitting a linear model
+
+from symfit import parameter, Variable, Fit
+import numpy as np
+
+a = Parameter ('a')
+b = Parameter ('b')
+x = Variable ('x')
+model = a * x  + b 
+
+lets fit this model to some generated data 
+
+xdata = np.linspace (0, 100, 100)		#from 0 to a 100 in 100 steps
+a_vec = np.random.normal(15.0, scale = 2.0, size =(100,))
+b_vec = np.random.normal(100.0, scale = 2.0, size = (100,))
+ydata = a_vec * xdata + b_vec 					#Point scattered around the line 5 * x + 105
+
+fit = Fit(model, xdata, ydata)
+fit_result = fit.execute()
+
+
+
+#check results 
+print(fit_result)
+#can visualize using plot through matplotlib plt.plot
+plt.scatter(xdata, ydata)
+
+
+###Initial guess
+for fitting to work as desired you should always give a good initial  guess for a parameter. The parameter object can therefore be initiated
+with the following keywords:
+
+value the initial guess value. Defaults to 1 
+min Minimal value for the parameter.
+max Maximal value for the parameter.
+fixed Whether the parameter’s value can vary during fitting.
+
+
+#In example above, we might change our Parameter's to the following after looking at a plot of the data
+
+k = Parameter('k', value = 4, min = 3, max = 6)
+
+a, b = parameters('a, b')
+a.value = 60
+a.fixed = True 
+
+
+###Accessing the Results
+a call to Fit.execute returns a FitResults instance. This object holds all information about the fit. 
+The fitting process does not modify the Parameter objects. in the above example, a.value will still be 60
+ and not the value we obtain after fitting. to get the value of foit parameters we can do
+
+>>> print(fit_result.value(a))
+>>> 14.66946...
+>>> print(fit_result.stdev(a))
+>>> 0.3367571...
+>>> print(fit_result.value(b))
+>>> 104.6558...
+>>> print(fit_result.stdev(b))
+>>> 19.49172...
+>>> print(fit_result.r_squared)
+>>> 0.950890866472
+
+
+
+###Evaluating the model 
+With these parameters, we coud now evaluate the model with these parameters so we can make a plot of it. 
+In order to do this, we simply call the model with these values
+
+
+y = model(x = xdata, a = fit_fit_result.value(a), b = fit_result.value(b))
+plt.plot(xdata, y)
+plt.show()
+
+
+
+The model has to be called by keyword arguments to prevent any ambiguity. So the following does not work:
+
+y = model(xdata, fit_result.value(a), fit_result.value(b))
+To make life easier, there is a nice shorthand notation to immediately use a fit result:
+
+y = model(x=xdata, **fit_result.params)
+This immediately unpacks an OrderedDict containing the optimized fit parameters.
+
+
+
+###Named Models 
+More complicated models are also relatively easy to deal with by using named models. Let's try our 
+luck with a bivariate normal distribution 
+
+
+from symfit import parameters, variables, exp, pi, sqrt
+
+
+x, y, p = variables('x, y, p')
+mux, mu_y, sig_x, sig_y, rho = parameters('mu_x, mu_y, sig_x, sig_y, rho')
+
+z = (
+    (x - mu_x)**2/sig_x**2
+    + (y - mu_y)**2/sig_y**2
+    -2 * rho * (x - mu_x) * (y - mu_y)/(sig_x * sig_y)
+)
+model = {p: exp( -z/(2*(1 - rho**2))) /(2*pi * sig_x * sig_y (sqrt(1 - rho**2))}
+
+fit Fit(model, x = xdata, y = ydata, p = pdata)
+
+
+
+by using the magic of named models, the flow of information isstill relatively clear, even with such a 
+complicated function 
+
+This syntax also supports vector valued functions: 
+model = {y_1: a * x**2, y_2: 2 * x * b}
+
+
+One thing to note about such models is that now model(x=xdata) obviously no longer works as type(model) == dict. There is a preferred way to resolve this. If any kind of fitting object has been initiated, it will have a .model atribute containing an instance of Model. This can again be called:
+
+a, b = parameters('a, b')
+y_1, y_2, x = variables('y_1, y_2, x')
+
+model = {y_1: a * x**2, y_2: 2 * x * b}
+fit = Fit(model, x=xdata, y_1=y_data1, y_2=y_data2)
+fit_result = fit.execute()
+
+y_1_result, y_2_result = fit.model(x=xdata, **fit_result.params)
+
+
+
+
+This returns a namedtuple(), with the components evaluated. So through the magic of tuple unpacking, y_1 and y_2 contain the evaluated fit. The dependent variables will be ordered alphabetically in the returned namedtuple(). Alternatively, the unpacking can be performed explicitly.
+
+If for some reason no Fit is initiated you can make a Model object yourself:
+
+model = Model(model_dict)
+y_1_result, y_2_result = model(x = xdata, a =2.4, b = 0.1)
+
+or equivalently: 
+outcome = model (x = xdata, a = 2.4, b= 0.1)
+y_1_result = outcome.y_1
+y_2_result = outcome.y_2
+
+symfit exposes sympy.api
+symfit exposes the sympy api as well, so mathematical expressions such as exp, sin and Pi are importable from symfit as well. For more, read the sympy docs.
+
+
+
+
+
+
+####### Fitting Types #########
+#The default fitting object does least-squares fitting: 
+
+
+
+####Fit (least squares)
+from symfit import parameters, variables, Fit
+import numpy as np
+
+# Define a model to fit to.
+a, b = parameters('a, b')
+x, = variables('x')
+model = a * x + b
+
+# Generate some data
+xdata = np.linspace(0, 100, 100)  # From 0 to 100 in 100 steps
+a_vec = np.random.normal(15.0, scale=2.0, size=(100,))
+b_vec = np.random.normal(100.0, scale=2.0, size=(100,))
+# Point scattered around the line 5 * x + 105
+ydata = a_vec * xdata + b_vec
+
+fit = Fit(model, xdata, ydata)
+fit_result = fit.execute()
+
+
+
+We can plot this as we did above 
+
+
+Fit object can also support standard deviations. In order to provide these, it's nicer to use a named model: 
+a, b = parameters('a, b')
+x, y = variables('x, y')
+model = {y: a*x + b}
+
+fit = Fit(model, x = xdata, y = ydata, sigma_y = sigma)
+
+
+symfit assumes these sigma to be from measurement errors by default, and not just as a relative weight. This means the standard deviations on parameters are calculated assuming the absolute size of sigma is significant. This is the case for measurement errors and therefore for most use cases symfit was designed for. If you only want to use the sigma for relative weights, then you can use absolute_sigma=False as a keyword argument.
+
+Please note that this is the opposite of the convention used by scipy’s curve_fit(). Looking through their mailing list this seems to have been implemented the opposite way for historical reasons, and was understandably never changed so as not to lose backwards compatibility. Since this is a new project, we don’t have that problem.
+
+
+### Constrained least Squares Fit
+The Fit takes a constraints keyword; a list of relationships between the parameters that has to be respected. As an example of fitting with constraints, we could imagine fitting the angles of a triangle:
+
+a, b, c = parameters('a, b, c')
+a_i, b_i, c_i = variables ('a_i, b_i, c_i')
+
+model = {a_i: a, b_i:, b, c_i: c}
+
+data = np.array([
+    [10.1, 9., 10.5, 11.2, 9.5, 9.6, 10.],
+    [102.1, 101., 100.4, 100.8, 99.2, 100., 100.8],
+    [71.6, 73.2, 69.5, 70.2, 70.8, 70.6, 70.1],
+])
+
+fit = Fit(
+    model = model, 
+    a_i = data[0], 
+    b_i = data[1], 
+    c_i = data[2], 
+    constraints = [Equality(a + b + c, 180)]
+)
+
+fit_result = fit.execute()
+
+
+The line contraints = [Equality(a +b + c, 180)] ensures the our basic knowledge of geometry is respected despite my sloppy measurements
+
+Under the hood, a different Minimizer is used to perform a constrained fit. Fit tries to select the right Minimizer based on the problem you present it with. See Fit for more.
+
+
+
+### Likelihood
+
+Given a dataset and a model, what values should the model’s parameters have to make the observed data most likely? This is the principle of maximum likelihood and the question the Likelihood object can answer for you.
+
+Example:
+
+# Define the model for an exponenetial distribution (nupy stule)
+beta - Parameter('beta')
+x = Varaible('x')
+model = ( 1 / beta) * exp( -x / beta)
+
+# Draw 100 samples from an exponential distribution with beta = 5.5 
+data = np.random.exponential(5.5, 100)
+
+
+# Do the fitting!
+fit = Fit(model, data, objective = LogLikelihood)
+fit_result = fit.execute()
+
+fit_result is a normal FitResults object. As always, bounds on parameters and even constraints are supported.
+
+Multiple data sets can be likelihood fitted simultaneously by merging this example with that of global fitting, see Example: Global Likelihood fitting in the example section.
+
+
+
+### Minimize/Maximize
+Minimize or Maximize a model subject to bounds and/or constraints. As an example, I present an example from the scipy docs.
+
+Suppose we want to maximize the following function:
+
+f(x,y)=2xy+2x−x2−2y2
+Subject to the following constraints:
+
+x3−y=0
+y−1>=0
+In SciPy code the following lines are needed:
+
+def func(x, sign=1.0):
+    """ Objective function """
+    return sign*(2*x[0]*x[1] + 2*x[0] - x[0]**2 - 2*x[1]**2)
+
+def func_deriv(x, sign=1.0):
+    """ Derivative of objective function """
+    dfdx0 = sign*(-2*x[0] + 2*x[1] + 2)
+    dfdx1 = sign*(2*x[0] - 4*x[1])
+    return np.array([ dfdx0, dfdx1 ])
+
+cons = ({'type': 'eq',
+        'fun' : lambda x: np.array([x[0]**3 - x[1]]),
+        'jac' : lambda x: np.array([3.0*(x[0]**2.0), -1.0])},
+        {'type': 'ineq',
+        'fun' : lambda x: np.array([x[1] - 1]),
+        'jac' : lambda x: np.array([0.0, 1.0])})
+
+res = minimize(func, [-1.0,1.0], args=(-1.0,), jac=func_deriv,
+               constraints=cons, method='SLSQP', options={'disp': True})
+Takes a couple of read-throughs to make sense, doesn’t it? Let’s do the same problem in symfit:
+
+from symfit import parameters, Maximize, Eq, Ge
+
+x, y = parameters('x, y')
+model = 2*x*y + 2*x - x**2 -2*y**2
+constraints = [
+    Eq(x**3 - y, 0),
+    Ge(y - 1, 0),
+]
+
+fit = Fit(- model, constraints=constraints)
+fit_result = fit.execute()
+Done! symfit will determine all derivatives automatically, no need for you to think about it. Notice the minus sign in the call to Fit. This is because Fit will always minimize, so in order to achieve maximization we should minimize - model.
+
+Warning
+
+You might have noticed that x and y are Parameter’s in the above problem, which may strike you as weird. However, it makes perfect sense because in this problem they are parameters to be optimised, not independent variables. Furthermore, this way of defining it is consistent with the treatment of Variable’s and Parameter’s in symfit. Be aware of this when minimizing such problems, as the whole process won’t work otherwise.
+
+
+
+.
+.
+.
+.
+.
+.
+ 
+
+more on this later 
+
+
+#################################    Chap 15 Plotting with Matplotlib ##################
+if ever lost, refer to the following:
+project's webpage, 
+beginner's guide
+matplotlib.pyplot tutorial
+matplotlib.pyplot documentation
+
+
+
+
+#### Basic Usage - pyplot.plot
+
+from matplotlib import pyplot. plt
+plt.plot([1,2,3,4])
+plt.show()				#what does this actually mean ? 
+
+
+# above plot asks for x and y but since y was not provided, plot just assumed 0, 1, 2, 3 for y. 
+# we notice that the length here is the same 
+
+if the length were not the same, we'd get an error 
+>>> plt.plot([0.1, 0.2, 0.3, 0.4], [1, 2, 3, 4, 5])
+ValueError: x and y must have same first dimension 
+
+
+to plot multiple curves simply call plt.plot with as many x-y list pairs as needed : 
+plt.plot ([0.1, 0.2, 0.3, 0.4], [1,2,3,4], 
+           [0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16])
+
+
+Alternaltively, more plots may be added by repeatedly calling plt.plot. The following code snippet produces the
+same plot as the previous code example:
+>>> plt.plot([0.1, 0.2, 0.3, 0.4], [1, 2, 3, 4])
+>>> plt.plot([0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16])
+
+
+Adding information to the plot axes is straightforward to do:
+plt.plot([.1, .3, .4, .5], [1, 2, 3, 4])
+plt.plot([.1, .2, .3, .4], [1, 4, 9, 16])
+
+plt.xlabel("Time (s)")
+plt.ylabel("Scale (bananas)")
+
+the graph will show that plot 1 is linear whilie plot two is exponential 
+
+
+Also, adding a legend is rather simple 
+plt.plot([.1, .3, .4, .5], [1, 2, 3, 4], label = 'first plot')
+plt.plot([.1, .2, .3, .4], [1, 4, 9, 16], label = 'second plot')
+
+
+And adjusting axis ranges can be done by calling plt.xlim and plt.ylim with the lower and higher limits for the
+respective axes.
+plt.plot([0.1, 0.2, 0.3, 0.4], [1, 2, 3, 4])
+plt.plot([0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16])
+plt.xlabel("Time (s)")
+plt.ylabel("Scale (Bananas)")
+plt.xlim(0, 1)
+plt.ylim(-5, 20)
+
+
+
+In addition to x and y data lists, plt.plot can also take strings that define the plotting style:
+plt.plot([0.1, 0.2, 0.3, 0.4], [1, 2, 3, 4], 'rx')
+plt.plot([0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16], 'b-.')
+plt.xlabel("Time (s)")
+plt.ylabel("Scale (Bananas)")
+
+
+The style strings, one per x–y pair, specify color and shape: ‘rx’ stands for red crosses, and ‘b-.’ stands for blue
+dash-point line. Check the documentation of pyplot.plot for the list of colors and shapes.
+15.2.
+
+
+### More Plots
+Below we try out the plt.bar function, for plotting bar charts. The full list of plotting functions can be found in the the
+matplotlib.pyplot documentation.
+
+plt.bar(range(7), [1,2,3,4,2,3,1])    # here x = range7 which is bin edges and [ 1, 2, 3, ...., 1] is y which is bar heighs
+
+Note, however, that contrary to plt.plot you must always specify x and y (which correspond, in bar chart terms to
+the left bin edges and the bar heights). Also note that you can only plot one chart per call. For multiple, overlapping
+charts you’ll need to call plt.bar repeatedly.
+
+One of the optional arguments to plt.bar is width, which lets you specify the width of the bars. Its default of 0.8
+might not be the most suited for all cases, especially when the x values are small:
+plt.bar(numpy.arange(0., 1.4, .2), [1, 2, 3, 4, 3, 2, 1])
+
+
+this though gives some nasty results where the width is inconsistent so we fix it with width = x
+plt.bar(numpy.arange(0., 1.4, .2), [1, 2, 3, 4, 3, 2, 1], width=0.2)
+
+
+
+### Comparison with Function 
+suppose we just fitted a function to some measured data. We can check how good our fit matches the data
+
+
+123456
+123456
+123456790
+123455
+12345678
+12345678
+78910
+
+#### function plotting and verification 
+
+import matplotlib.pyplot as plt
+
+def found_fit(x): 
+    return .388 * x**2			# Found with symfit
+
+x_data = list(range(10))
+y_data = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+
+
+x_func = np.linspace(0, 10, 50)
+# numpy will do the right thing and evaluate found_fit for all elements
+y_func = found_fit(x_func)
+
+
+# From here the plotting starts
+
+plt.scatter (x_data, y_data, c = 'r', label = 'data')
+plt.plot (x_func, y_func, label = '$f(x) = 0.388x^2$$')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Fitting Primes')
+plt.legend()
+plt.show()
+
+
+# Saving plot
+plt.safefig('whatever name want')
+
+
+
+
+### Explanation of above
+we have a function y = .388*X^2
+we have x_data which is a list of data  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]         10 items 
+we have y data which is a list of data  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]   10 items
+#you can say that these are (x, y) points to be plotted on an xy coordinate and is what we call data
+
+x_func = np.linspace(0, 10, 50)) is a vector fro 0 to 10 with 50 steps
+y_func = found_fit(x) 		 basically is the same as saying y = .388 * ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])^2
+
+plt.scatter (x_data, y_data, c = 'r', label = 'data')		# x_data we know is x vector, y_data is y vector, c = color red, label is for legend
+plt.plot (x_func, y_func, label = '$f(x) = 0.388x^2$$')		# x_func is the vector/array of 50 elements from 0 to 10, y_func is our fitted y = .388X^2  
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Fitting Primes')
+plt.legend()
+plt.show()
+
+
+
+
+Multiple figures: 
+It is also possible to
+use it in an object-oriented manner, which allows for more separation between several plots and figures. Let’s say we
+have two sets of data we want to plot next to eachother, rather than in the same figure. Matplotlib has several layers
+of organisation: first, there’s an Figure object, which basically is the window your plot is drawn in. On top of that,
+there are Axes objects, which are your separate graphs. It is perfectly possible to have multiple (or no) Axes in one
+Figure. We’ll explain the add_subplot method a bit later. For now, it just creates an Axis instance.
+
+import matplotlib.pyplot as plt
+2
+3 x_data = [0.1, 0.2, 0.3, 0.4]
+4 y_data = [1, 2, 3, 4]
+5
+6 fig = plt.figure()
+7 ax = fig.add_subplot(1, 1, 1)
+8 ax.plot([0.1, 0.2, 0.3, 0.4], [1, 2, 3, 4])
+9 ax.plot([0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16])
+10 ax.set_xlabel('Time (s)')
+11 ax.set_ylabel('Scale (Bananas)')
+12
+13 plt.show()
+
+
+the above gives two superimposed plots. 
+
+What if we want plot 1 and plot 2 in separate images 
+
+1 x_data1 = [0.1, 0.2, 0.3, 0.4]
+2 y_data1 = [1, 2, 3, 4]
+3
+4 x_data2 = [0.1, 0.2, 0.3, 0.4]
+5 y_data2 = [1, 4, 9, 16]
+6
+7 fig = plt.figure()
+8 ax1 = fig.add_subplot(1, 2, 1)
+9 ax2 = fig.add_subplot(1, 2, 2)
+10 ax1.plot(x_data1, y_data1, label='data 1')
+11 ax2.plot(x_data2, y_data2, label='data 2')
+12 ax1.set_xlabel('Time (s)')
+13 ax1.set_ylabel('Scale (Bananas)')
+14 ax1.set_title('first data set')
+15 ax1.legend()
+16 ax2.set_xlabel('Time (s)')
+17 ax2.set_ylabel('Scale (Bananas)')
+18 ax2.set_title('second data set')
+19 ax2.legend()
+20
+21 plt.show()
+
+add subplot method returns an Axis instance and taes three argument: 
+the first is the number of rows to create; the second is the number of columns; and the last is which plot
+ number we add right now. So in common usage you will need to call add_subplot once for every axis you want 
+to make with the same first two arguments. Whatwould happen if you first ask for one row and two columns, 
+and for two rows and one column in the next call?
+
+
+#########################################    Learning Scientific programming with Python #####################
+### Simple plotting with pylab 
+
+### simplest x, y line plot is achieeed by calling pyab.plot with two objects of the same size
+import pylab
+ax = [0, .5, 1, 1.5, 2.0, 2.5, 3]
+ay = [0, .25, 1, 2.25, 5, 6.25, 9]
+pylab.plot(ax, ay) 
+pylab.show()
+
+
+## we can call pylab.scatter for dots instead
+pylab.scatter(ax, ay) 
+
+
+###Can do this randomly ######### random plot using 
+import random 
+
+ax, ay = [], [] 
+for i in range(100): 
+    ax.append(random.random())
+    ay.append(random.random())
+
+pylab.scatter(ax, ay)
+pylab.show()
+
+#can save using pylab.savefig('plot.png') can also use plot.pdf, plot. eps -> encapsulated postscript format 
+
+
+### Example plotting a function ... y = sin^2x for -epi <= x <= 2pi
+## WE are going to calculate and plot 1000(x, y) points and and store them as ax and ay
+## To setup the ax list as the abcissa (x-coordinate of a point in a Cartesian coordinate system) , we can't use range directly because the amteothod only produces integer sequences so 
+## we first work out the spacing betwen each x value as deltax = (xmax  -xmin)/n - 1
+
+#( if our n values are to include xin and xmax, there are n - 1 intervals of width delta x) the abxcissa points are then 
+Xi = xmin + i*deltax for i = 0 , 1, 2, ... , n - 1
+
+the corresponding y-axis points are 
+Yi = sin^2(Xi)
+
+The following program implements this approach, and plots the (x, y) points on a simpler line graph
+code below 
+Y = sin^2x
+
+import math 
+import pylab
+xmin, xmax = -2. * math.pi, 2. * math.pi 
+n = 1000
+x = [0] * n 
+y = [0] * n 
+dx = (xmax - xmin) / (n - 1) 
+for i in range(n): 
+    xpt = xmin + i * dx
+    x[i] = xpt
+    y[i] = math.sin(xpt) **2
+
+pylab.plot(x, y)
+pylab.show()
+
+
+
+
+### Linspace and Vectorization: 
+Plotting above y = sin^2(x) above involved quite a lot of work, almost all of it to do with setting up the lists x and y. In fact, pylab provides
+some of the same functionality as the Numpy library introducted in chapter  which can be used to make life much easier 
+
+- First, the regularly spaced grid of x - coordinates x can be created using linspace which is like a floating point version of the range builtin in. 
+  it takes a start value and an end value and the number of values in the sequence and generates an array of values representing the arithmetic prograession between  (and includive of the two values. i.e linspace(-5, 5, 1001) creates the sequence (-5, -4.99, -4.98, ...,4.99,  5)
+
+- Second the pylab equivalent of the math module's methods can act on iterable objects such as lists or numpy arrays. Thus y = pylab.sin(x) creates a sequ
+  uence of values (actually a numpy ndarray) which are sin(xi) for each value xi in teh array  x: 
+
+
+REdo of plot above 
+import pylab
+n = 1000
+xmin, xmax = -2. * math.pi, 2. * math.pi 
+x = pylab.linspace(xmin, xmax, n)
+y = pylab.sin(x)**2
+pylab.plot(x,y)
+pylab.show()
+
+The above is called vectorization. Lists and Tuples can be turned into array objects supporting vectoriazation with teh array constructor method
+
+w = [1, 2, 3, 4]
+w = pylab.array(w)
+w * 100 			#multiply each element by 100 
+
+# result is 
+array([100, 200, 300, 400])
+
+
+
+#To add  a second line to teh plot, simply call pylab.plot again 
+x = pylab.linspace(xmin, xmax, n)
+y1 = pylab.sin(x)**2 
+y2 = pylab.cos(x)**2
+pylab.plot(x, y2)
+pylab.plot(x, y1)
+pylab.show()
+
+
+.
+.
+.
+.
+will continue with pylab
+
